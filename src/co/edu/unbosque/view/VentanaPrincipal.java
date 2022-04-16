@@ -16,6 +16,9 @@ public class VentanaPrincipal extends JFrame{
     private PanelEsferaIn pesferaIn;
     private PanelLineaCargada plineaCargada;
     private PanelLaminaCargada plaminaCargada;
+    private PanelSumaCapacitores psumacapa;
+    private PanelSumaParalelo psumaparalelo;
+    private PanelSumaSerie psumaserie;
 
     public VentanaPrincipal() {
 
@@ -67,6 +70,30 @@ public class VentanaPrincipal extends JFrame{
         plaminaCargada.setBounds(25, 25, 535, 250);
         getContentPane().add(plaminaCargada);
 
+        psumacapa = new PanelSumaCapacitores();
+        psumacapa.setBounds(25, 25, 535, 415);
+        getContentPane().add(psumacapa);
+
+        psumaparalelo = new PanelSumaParalelo();
+        psumaparalelo.setBounds(25, 25, 535, 250);
+        getContentPane().add(psumaparalelo);
+
+        psumaserie = new PanelSumaSerie();
+        psumaserie.setBounds(25, 25, 535, 250);
+        getContentPane().add(psumaserie);
+
+    }
+
+    public PanelSumaSerie getPsumaserie() {
+        return psumaserie;
+    }
+
+    public PanelSumaParalelo getPsumaparalelo() {
+        return psumaparalelo;
+    }
+
+    public PanelSumaCapacitores getPsumacapa() {
+        return psumacapa;
     }
 
     public PanelLaminaCargada getPlaminaCargada() {

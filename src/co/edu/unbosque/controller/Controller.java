@@ -36,6 +36,7 @@ public class Controller implements ActionListener{
         ventana.getPprincipal().getBtntema1().addActionListener(this);
         ventana.getPprincipal().getBtntema2().addActionListener(this);
         ventana.getPprincipal().getBtntema3().addActionListener(this);
+        ventana.getPprincipal().getBtntema4().addActionListener(this);
         //botones panel gauss
         ventana.getPleyGauss().getBtnfueraesfera().addActionListener(this);
         ventana.getPleyGauss().getBtndentroesfera().addActionListener(this);
@@ -54,6 +55,17 @@ public class Controller implements ActionListener{
         //botones panel lamina cargada
         ventana.getPlaminaCargada().getBtnvolver().addActionListener(this);
         ventana.getPlaminaCargada().getBtncalcular().addActionListener(this);
+        //botones panel suma capacitores
+        ventana.getPsumacapa().getBtnVolver().addActionListener(this);
+        ventana.getPsumacapa().getBtnsumaserie().addActionListener(this);
+        ventana.getPsumacapa().getBtnSumaParalelo().addActionListener(this);
+        //botones panel suma serie
+        ventana.getPsumaserie().getBtnvolver().addActionListener(this);
+        ventana.getPsumaserie().getBtnsumar().addActionListener(this);
+        //botones panel suma paralelo
+        ventana.getPsumaparalelo().getBtnvolver().addActionListener(this);
+        ventana.getPsumaparalelo().getBtnsumar().addActionListener(this);
+
     }
 
     @Override
@@ -73,6 +85,32 @@ public class Controller implements ActionListener{
         {
             ventana.getPprincipal().setVisible(false);
             ventana.getPleyGauss().setVisible(true);
+        }
+        if (comando.equals("TEMA4"))
+        {
+            ventana.getPsumacapa().setVisible(true);
+            ventana.getPprincipal().setVisible(false);
+        }
+
+        //Comandos panel suma capacitores
+        if(comando.equals("VOLVERSUM"))
+        {
+            ventana.getPsumacapa().setVisible(false);
+            ventana.getPprincipal().setVisible(true);
+        }
+
+        if(comando.equals("SUMSERIE"))
+        {
+                ventana.getPsumacapa().setVisible(false);
+                ventana.getPsumaserie().setVisible(true);
+                ventana.getPrespuesta().setVisible(true);
+        }
+
+        if(comando.equals("SUMPARALELO"))
+        {
+            ventana.getPsumacapa().setVisible(false);
+            ventana.getPsumaparalelo().setVisible(true);
+            ventana.getPrespuesta().setVisible(true);
         }
 
         //Comandos panel datos
@@ -328,6 +366,81 @@ public class Controller implements ActionListener{
 
             double rta = n1.CampoLaminaCargada(n2);
             ventana.getPrespuesta().getErta().setText(" El campo de una lamina cargada es: " + rta + " (N/C) ");
+        }
+
+        //comandos panel suma paralelo
+
+        if(comando.equals("VOLVERSUMARPARALELO"))
+        {
+            ventana.getPsumacapa().setVisible(true);
+            ventana.getPsumaparalelo().setVisible(false);
+            ventana.getPrespuesta().setVisible(false);
+        }
+
+        if(comando.equals("SUMARPARALELO"))
+        {
+            try {
+                aux = ventana.getPsumaparalelo().getTxtvoltaje1().getText();
+                aux_dou = Double.parseDouble(aux);
+                n1 = new Numero(aux_dou);
+                System.out.println(aux);
+
+                aux = ventana.getPsumaparalelo().getTxtvoltaje2().getText();
+                aux_dou = Double.parseDouble(aux);
+                n2 = new Numero(aux_dou);
+                System.out.println(aux);
+
+                aux = ventana.getPsumaparalelo().getTxtvoltaje3().getText();
+                aux_dou = Double.parseDouble(aux);
+                n3 = new Numero(aux_dou);
+                System.out.println(aux);
+
+            }catch(Exception error)
+            {
+                msg.mostrarInformacionError("Solo debes usar números y la 'e' en caso de tener un exponente.");
+            }
+
+            double rta = n1.SumaParalelo(n2,n3);
+            ventana.getPrespuesta().getErta().setText(" La suma en paralelo es: " + rta + " (F) ");
+
+        }
+
+        //comandos panel suma serie
+
+        if(comando.equals("VOLVERSUMARSERIE"))
+        {
+            ventana.getPsumacapa().setVisible(true);
+            ventana.getPsumaserie().setVisible(false);
+            ventana.getPrespuesta().setVisible(false);
+        }
+
+        if(comando.equals("SUMARSERIE"))
+        {
+
+            try {
+                aux = ventana.getPsumaserie().getTxtvoltaje1().getText();
+                aux_dou = Double.parseDouble(aux);
+                n1 = new Numero(aux_dou);
+                System.out.println(aux);
+
+                aux = ventana.getPsumaserie().getTxtvoltaje2().getText();
+                aux_dou = Double.parseDouble(aux);
+                n2 = new Numero(aux_dou);
+                System.out.println(aux);
+
+                aux = ventana.getPsumaserie().getTxtvoltaje3().getText();
+                aux_dou = Double.parseDouble(aux);
+                n3 = new Numero(aux_dou);
+                System.out.println(aux);
+
+            }catch(Exception error)
+            {
+                msg.mostrarInformacionError("Solo debes usar números y la 'e' en caso de tener un exponente.");
+            }
+
+            double rta = n1.SumaSerie(n2,n3);
+            ventana.getPrespuesta().getErta().setText(" La suma en serie es: " + rta + " (F) ");
+
         }
 
 

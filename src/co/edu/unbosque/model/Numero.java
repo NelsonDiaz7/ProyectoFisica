@@ -81,6 +81,21 @@ public class Numero {
         return campo;
     }
 
+    public double SumaParalelo(Numero ca1, Numero ca2) {
+
+       double Ceq = num + ca1.num + ca2.num;
+
+        return Ceq;
+    }
+
+    public double SumaSerie(Numero ca1, Numero ca2) {
+
+        double Sum = (1/num) + (1/ca1.num) + (1/ca2.num);
+        double Ceq = (1/1)/(Sum);
+
+        return Ceq;
+    }
+
 
     public double getNum() {
         return num;

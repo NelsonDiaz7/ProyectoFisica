@@ -11,6 +11,7 @@ public class PanelPrincipal extends JPanel {
     private JButton btntema1;
     private JButton btntema2;
     private JButton btntema3;
+    private JButton btntema4;
 
 
     public PanelPrincipal() {
@@ -34,22 +35,32 @@ public class PanelPrincipal extends JPanel {
 
         btntema1 = new JButton("Coulomb");
         btntema1.setFont(font);
-        btntema1.setBounds(200, 70, 150,30);
+        btntema1.setBounds(180, 70, 170,30);
         add(btntema1);
         btntema1.setActionCommand("TEMA1");
 
         btntema2 = new JButton("Ley de Gauss");
         btntema2.setFont(font);
-        btntema2.setBounds(200, 110, 150,30);
+        btntema2.setBounds(180, 110, 170,30);
         add(btntema2);
         btntema2.setActionCommand("TEMA2");
 
         btntema3 = new JButton("Tema 3");
         btntema3.setFont(font);
-        btntema3.setBounds(200, 150, 150,30);
+        btntema3.setBounds(180, 150, 170,30);
         add(btntema3);
         btntema3.setActionCommand("TEMA3");
 
+        btntema4 = new JButton("Suma de capacitores");
+        btntema4.setFont(font);
+        btntema4.setBounds(180, 190, 170,30);
+        add(btntema4);
+        btntema4.setActionCommand("TEMA4");
+
+    }
+
+    public JButton getBtntema4() {
+        return btntema4;
     }
 
     public JLabel getLblTitulo() {
