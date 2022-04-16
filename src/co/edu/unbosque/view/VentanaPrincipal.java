@@ -11,7 +11,11 @@ public class VentanaPrincipal extends JFrame{
     private PanelDatos pdatos;
     private PanelRespuesta prespuesta;
     private PanelPrincipal pprincipal;
-    private PanelFlujoElectrico pflujo;
+    private PanelLeyGauss pleyGauss;
+    private PanelEsferaOut pesferaOut;
+    private PanelEsferaIn pesferaIn;
+    private PanelLineaCargada plineaCargada;
+    private PanelLaminaCargada plaminaCargada;
 
     public VentanaPrincipal() {
 
@@ -43,14 +47,46 @@ public class VentanaPrincipal extends JFrame{
         pprincipal.setBounds(25, 25, 535, 415);
         getContentPane().add(pprincipal);
 
-        pflujo = new PanelFlujoElectrico();
-        pflujo.setBounds(25, 25, 535, 415);
-        getContentPane().add(pflujo);
+        pleyGauss = new PanelLeyGauss();
+        pleyGauss.setBounds(25, 25, 535, 415);
+        getContentPane().add(pleyGauss);
+
+        pesferaOut = new PanelEsferaOut();
+        pesferaOut.setBounds(25, 25, 535, 250);
+        getContentPane().add(pesferaOut);
+
+        pesferaIn = new PanelEsferaIn();
+        pesferaIn.setBounds(25, 25, 535, 250);
+        getContentPane().add(pesferaIn);
+
+        plineaCargada = new PanelLineaCargada();
+        plineaCargada.setBounds(25, 25, 535, 250);
+        getContentPane().add(plineaCargada);
+
+        plaminaCargada = new PanelLaminaCargada();
+        plaminaCargada.setBounds(25, 25, 535, 250);
+        getContentPane().add(plaminaCargada);
 
     }
 
-    public PanelFlujoElectrico getPflujo() {
-        return pflujo;
+    public PanelLaminaCargada getPlaminaCargada() {
+        return plaminaCargada;
+    }
+
+    public PanelLineaCargada getPlineaCargada() {
+        return plineaCargada;
+    }
+
+    public PanelEsferaIn getPesferaIn() {
+        return pesferaIn;
+    }
+
+    public PanelEsferaOut getPesferaOut() {
+        return pesferaOut;
+    }
+
+    public PanelLeyGauss getPleyGauss() {
+        return pleyGauss;
     }
 
     public PanelDatos getPdatos() {

@@ -34,19 +34,19 @@ public class PanelPrincipal extends JPanel {
 
         btntema1 = new JButton("Coulomb");
         btntema1.setFont(font);
-        btntema1.setBounds(230, 70, 90,20);
+        btntema1.setBounds(200, 70, 150,30);
         add(btntema1);
         btntema1.setActionCommand("TEMA1");
 
-        btntema2 = new JButton("Flujo electrico");
+        btntema2 = new JButton("Ley de Gauss");
         btntema2.setFont(font);
-        btntema2.setBounds(230, 100, 120,20);
+        btntema2.setBounds(200, 110, 150,30);
         add(btntema2);
         btntema2.setActionCommand("TEMA2");
 
         btntema3 = new JButton("Tema 3");
         btntema3.setFont(font);
-        btntema3.setBounds(230, 130, 90,20);
+        btntema3.setBounds(200, 150, 150,30);
         add(btntema3);
         btntema3.setActionCommand("TEMA3");
 
