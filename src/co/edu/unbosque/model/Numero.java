@@ -79,6 +79,8 @@ public class Numero {
         double campo = (densidadsuperficial) / ((2)*constante);
 
         return campo;
+
+
     }
 
     public double SumaParalelo(Numero ca1, Numero ca2) {
@@ -94,6 +96,26 @@ public class Numero {
         double Ceq = (1/1)/(Sum);
 
         return Ceq;
+    }
+
+    public double PotencialUnaCarga( Numero dis)
+    {
+        double constante = 9e9;
+        double potencial = ((constante)*(num))/dis.num;
+
+        return potencial;
+    }
+
+    public double PotencialMasCarga( Numero dis, Numero ca2, Numero dis2, Numero ca3, Numero dis3)
+    {
+        double constante = 9e9;
+        double potencial1 = ((constante)*(num))/dis.num;
+        double potencial2 = ((constante)*(ca2.num))/dis2.num;
+        double potencial3 = ((constante)*(ca3.num))/dis3.num;
+
+        double potencial = potencial1 + potencial2 + potencial3;
+
+        return potencial;
     }
 
 

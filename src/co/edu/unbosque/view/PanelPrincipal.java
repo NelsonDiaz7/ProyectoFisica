@@ -7,11 +7,11 @@ import java.awt.*;
 public class PanelPrincipal extends JPanel {
 
     private JLabel lblTitulo;
-
     private JButton btntema1;
     private JButton btntema2;
     private JButton btntema3;
     private JButton btntema4;
+    private JButton btntema5;
 
 
     public PanelPrincipal() {
@@ -57,6 +57,16 @@ public class PanelPrincipal extends JPanel {
         add(btntema4);
         btntema4.setActionCommand("TEMA4");
 
+        btntema5 = new JButton("Potencial Electrico");
+        btntema5.setFont(font);
+        btntema5.setBounds(180, 230, 170,30);
+        add(btntema5);
+        btntema5.setActionCommand("TEMA5");
+
+    }
+
+    public JButton getBtntema5() {
+        return btntema5;
     }
 
     public JButton getBtntema4() {

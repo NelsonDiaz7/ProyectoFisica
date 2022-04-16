@@ -19,6 +19,9 @@ public class VentanaPrincipal extends JFrame{
     private PanelSumaCapacitores psumacapa;
     private PanelSumaParalelo psumaparalelo;
     private PanelSumaSerie psumaserie;
+    private PanelPotencialElectrico ppotencial;
+    private PanelPotencialUnaCarga ppotencialUnaCarga;
+    private PanelPotencialMasCargas ppotencialMasCargas;
 
     public VentanaPrincipal() {
 
@@ -82,6 +85,30 @@ public class VentanaPrincipal extends JFrame{
         psumaserie.setBounds(25, 25, 535, 250);
         getContentPane().add(psumaserie);
 
+        ppotencial = new PanelPotencialElectrico();
+        ppotencial.setBounds(25, 25, 535, 415);
+        getContentPane().add(ppotencial);
+
+        ppotencialUnaCarga = new PanelPotencialUnaCarga();
+        ppotencialUnaCarga.setBounds(25, 25, 535, 250);
+        getContentPane().add(ppotencialUnaCarga);
+
+        ppotencialMasCargas = new PanelPotencialMasCargas();
+        ppotencialMasCargas.setBounds(25, 25, 535, 250);
+        getContentPane().add(ppotencialMasCargas);
+
+    }
+
+    public PanelPotencialUnaCarga getPpotencialUnaCarga() {
+        return ppotencialUnaCarga;
+    }
+
+    public PanelPotencialMasCargas getPpotencialMasCargas() {
+        return ppotencialMasCargas;
+    }
+
+    public PanelPotencialElectrico getPpotencial() {
+        return ppotencial;
     }
 
     public PanelSumaSerie getPsumaserie() {
