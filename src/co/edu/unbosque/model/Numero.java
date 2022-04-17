@@ -5,7 +5,6 @@ import java.text.DecimalFormat;
 public class Numero {
 
     private double num;
-    private DecimalFormat df;
 
     public Numero() {
         num = 0;
@@ -14,7 +13,6 @@ public class Numero {
 
     public Numero(double n) {
         num = n;
-        df = new DecimalFormat("#.000");
 
     }
 
@@ -118,7 +116,34 @@ public class Numero {
         return potencial;
     }
 
+    public double EnergiaPotencialDosCargas(Numero ca2, Numero dis)
+    {
+        double constante = 9e9;
+        double energiap =  (constante) * (num*ca2.num)/dis.num;
 
+        return energiap;
+    }
+
+    public double EnergiaSobreUnaCarga(Numero dis, Numero ca2, Numero dis2, Numero ca3, Numero dis3)
+    {
+        double constante = 9e9;
+        double distanciaQ1Q2 = Math.abs(dis.num-dis2.num);
+        double distanciaQ1Q3 = Math.abs(dis.num-dis3.num);
+        double Uf = (constante*num)*((ca2.num/distanciaQ1Q2) + (ca3.num/distanciaQ1Q3));
+
+        return Uf;
+    }
+
+    public double EnergiaTotal(Numero dis, Numero ca2, Numero dis2, Numero ca3, Numero dis3)
+    {
+        double constante = 9e9;
+        double distanciaQ1Q2 = Math.abs(dis.num-dis2.num);
+        double distanciaQ1Q3 = Math.abs(dis.num-dis3.num);
+        double distanciaQ2Q3 = Math.abs(dis2.num-dis3.num);
+        double UT = (constante)*((num*ca2.num/distanciaQ1Q2) + (num*ca3.num/distanciaQ1Q3) + (ca2.num*ca3.num/distanciaQ2Q3));
+
+        return UT;
+    }
     public double getNum() {
         return num;
     }

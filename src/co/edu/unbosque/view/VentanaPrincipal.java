@@ -22,6 +22,9 @@ public class VentanaPrincipal extends JFrame{
     private PanelPotencialElectrico ppotencial;
     private PanelPotencialUnaCarga ppotencialUnaCarga;
     private PanelPotencialMasCargas ppotencialMasCargas;
+    private PanelEnegiaPotencial penergiapotencial;
+    private PanelEnegiaDosCargas penergiadoscargas;
+    private PanelEnergiaUnaCarga penergiaUnaCarga;
 
     public VentanaPrincipal() {
 
@@ -97,6 +100,30 @@ public class VentanaPrincipal extends JFrame{
         ppotencialMasCargas.setBounds(25, 25, 535, 250);
         getContentPane().add(ppotencialMasCargas);
 
+        penergiapotencial = new PanelEnegiaPotencial();
+        penergiapotencial.setBounds(25, 25, 535, 415);
+        getContentPane().add(penergiapotencial);
+
+        penergiadoscargas = new PanelEnegiaDosCargas();
+        penergiadoscargas.setBounds(25, 25, 535, 250);
+        getContentPane().add(penergiadoscargas);
+
+        penergiaUnaCarga = new PanelEnergiaUnaCarga();
+        penergiaUnaCarga.setBounds(25, 25, 535, 250);
+        getContentPane().add(penergiaUnaCarga);
+
+    }
+
+    public PanelEnegiaDosCargas getPenergiadoscargas() {
+        return penergiadoscargas;
+    }
+
+    public PanelEnergiaUnaCarga getPenergiaUnaCarga() {
+        return penergiaUnaCarga;
+    }
+
+    public PanelEnegiaPotencial getPenergiapotencial() {
+        return penergiapotencial;
     }
 
     public PanelPotencialUnaCarga getPpotencialUnaCarga() {

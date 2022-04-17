@@ -7,7 +7,7 @@ import co.edu.unbosque.model.Numero;
 import co.edu.unbosque.view.Mensaje;
 import co.edu.unbosque.view.VentanaPrincipal;
 
-public class Controller implements ActionListener{
+public class Controller implements ActionListener {
     private Mensaje msg;
     private VentanaPrincipal ventana;
     private Numero n1;
@@ -17,15 +17,12 @@ public class Controller implements ActionListener{
     private Numero n5;
     private Numero n6;
     private Numero dis;
-    //private DecimalFormat df;
 
 
     public Controller() {
         ventana = new VentanaPrincipal();
         msg = new Mensaje();
-        //df = new DecimalFormat("0.000");
         ventana.getPprincipal().setVisible(true);
-
         asignarOyentes();
     }
 
@@ -41,6 +38,7 @@ public class Controller implements ActionListener{
         ventana.getPprincipal().getBtntema3().addActionListener(this);
         ventana.getPprincipal().getBtntema4().addActionListener(this);
         ventana.getPprincipal().getBtntema5().addActionListener(this);
+        ventana.getPprincipal().getBtntema6().addActionListener(this);
         //botones panel gauss
         ventana.getPleyGauss().getBtnfueraesfera().addActionListener(this);
         ventana.getPleyGauss().getBtndentroesfera().addActionListener(this);
@@ -79,7 +77,18 @@ public class Controller implements ActionListener{
         //botones panel dos cargas
         ventana.getPpotencialMasCargas().getBtnvolver().addActionListener(this);
         ventana.getPpotencialMasCargas().getBtncalcular().addActionListener(this);
+        //botones panel Energia potencial
+        ventana.getPenergiapotencial().getBtnvolver().addActionListener(this);
+        ventana.getPenergiapotencial().getBtnEnegiaPotencialdoscargas().addActionListener(this);
+        ventana.getPenergiapotencial().getBtnEnegiaSobreunaCarga().addActionListener(this);
+        //botones panel Energia potencial sobre una carga
 
+        ventana.getPenergiaUnaCarga().getBtnvolver().addActionListener(this);
+        ventana.getPenergiaUnaCarga().getBtncalcular().addActionListener(this);
+
+        //botones panel Energia potencial sobre dos cargas
+        ventana.getPenergiadoscargas().getBtnvolver().addActionListener(this);
+        ventana.getPenergiadoscargas().getBtncalcular().addActionListener(this);
     }
 
     @Override
@@ -106,6 +115,11 @@ public class Controller implements ActionListener{
         if (comando.equals("TEMA5")) {
             ventana.getPprincipal().setVisible(false);
             ventana.getPpotencial().setVisible(true);
+        }
+
+        if (comando.equals("TEMA6")) {
+            ventana.getPenergiapotencial().setVisible(true);
+            ventana.getPprincipal().setVisible(false);
         }
 
         //Comandos panel suma capacitores
@@ -142,6 +156,28 @@ public class Controller implements ActionListener{
         if (comando.equals("POTECARGADOS")) {
             ventana.getPpotencial().setVisible(false);
             ventana.getPpotencialMasCargas().setVisible(true);
+            ventana.getPrespuesta().setVisible(true);
+        }
+
+        //Comandos panel energia potencial
+
+        if (comando.equals("VOLVERENERGIA")) {
+            ventana.getPenergiapotencial().setVisible(false);
+            ventana.getPprincipal().setVisible(true);
+        }
+
+        if (comando.equals("ENERGIACARGA")) {
+
+            ventana.getPenergiapotencial().setVisible(false);
+            ventana.getPenergiaUnaCarga().setVisible(true);
+            ventana.getPrespuesta().setVisible(true);
+
+        }
+
+        if (comando.equals("ENERGIADOSCARGAS")) {
+
+            ventana.getPenergiapotencial().setVisible(false);
+            ventana.getPenergiadoscargas().setVisible(true);
             ventana.getPrespuesta().setVisible(true);
         }
 
@@ -482,8 +518,7 @@ public class Controller implements ActionListener{
             ventana.getPrespuesta().setVisible(false);
         }
 
-        if (comando.equals("CALCULARPOTEMASCARGA"))
-        {
+        if (comando.equals("CALCULARPOTEMASCARGA")) {
 
             try {
                 aux = ventana.getPpotencialMasCargas().getTxtcarga().getText();
@@ -503,7 +538,7 @@ public class Controller implements ActionListener{
 
                 aux = ventana.getPpotencialMasCargas().getTxtdistancia2().getText();
                 aux_dou = Double.parseDouble(aux);
-                 n4 = new Numero(aux_dou);
+                n4 = new Numero(aux_dou);
                 System.out.println(aux);
 
                 aux = ventana.getPpotencialMasCargas().getTxtcarga3().getText();
@@ -513,7 +548,7 @@ public class Controller implements ActionListener{
 
                 aux = ventana.getPpotencialMasCargas().getTxtdistancia3().getText();
                 aux_dou = Double.parseDouble(aux);
-                 n6 = new Numero(aux_dou);
+                n6 = new Numero(aux_dou);
                 System.out.println(aux);
 
 
@@ -526,7 +561,95 @@ public class Controller implements ActionListener{
 
         }
 
+        //comandos energia potencial de dos cargas
+
+        if (comando.equals("VOLVERENERGIADOSCARGAS")) {
+            ventana.getPenergiapotencial().setVisible(true);
+            ventana.getPenergiadoscargas().setVisible(false);
+            ventana.getPrespuesta().setVisible(false);
+        }
+
+        if (comando.equals("CALCULARENERGIADOSCARGAS")) {
+
+            try {
+                aux = ventana.getPenergiadoscargas().getTxtcarga1().getText();
+                aux_dou = Double.parseDouble(aux);
+                n1 = new Numero(aux_dou);
+                System.out.println(aux);
+
+                aux = ventana.getPenergiadoscargas().getTxtcarga2().getText();
+                aux_dou = Double.parseDouble(aux);
+                n2 = new Numero(aux_dou);
+                System.out.println(aux);
+
+                aux = ventana.getPenergiadoscargas().getTxtdistancia().getText();
+                aux_dou = Double.parseDouble(aux);
+                n3 = new Numero(aux_dou);
+                System.out.println(aux);
+
+
+            } catch (Exception error) {
+                msg.mostrarInformacionError("Solo debes usar números y la 'e' en caso de tener un exponente.");
+            }
+
+            double rta = n1.EnergiaPotencialDosCargas(n2, n3);
+            ventana.getPrespuesta().getErta().setText(" La energia potencial es: " + rta + " (J) ");
+
+        }
+
+        //comandos energia potencial de una cargas
+
+        if (comando.equals("VOLVERENERGIAUNACARGA")) {
+            ventana.getPenergiapotencial().setVisible(true);
+            ventana.getPenergiaUnaCarga().setVisible(false);
+            ventana.getPrespuesta().setVisible(false);
+        }
+
+        if (comando.equals("CALCULARENERGIAUNACARGA")) {
+
+            try {
+                aux = ventana.getPenergiaUnaCarga().getTxtcarga().getText();
+                aux_dou = Double.parseDouble(aux);
+                n1 = new Numero(aux_dou);
+                System.out.println(aux);
+
+                aux = ventana.getPenergiaUnaCarga().getTxtdistancia().getText();
+                aux_dou = Double.parseDouble(aux);
+                n2 = new Numero(aux_dou);
+                System.out.println(aux);
+
+                aux = ventana.getPenergiaUnaCarga().getTxtcarga2().getText();
+                aux_dou = Double.parseDouble(aux);
+                n3 = new Numero(aux_dou);
+                System.out.println(aux);
+
+                aux = ventana.getPenergiaUnaCarga().getTxtdistancia2().getText();
+                aux_dou = Double.parseDouble(aux);
+                n4 = new Numero(aux_dou);
+                System.out.println(aux);
+
+                aux = ventana.getPenergiaUnaCarga().getTxtcarga3().getText();
+                aux_dou = Double.parseDouble(aux);
+                n5 = new Numero(aux_dou);
+                System.out.println(aux);
+
+                aux = ventana.getPenergiaUnaCarga().getTxtdistancia3().getText();
+                aux_dou = Double.parseDouble(aux);
+                n6 = new Numero(aux_dou);
+                System.out.println(aux);
+
+
+            } catch (Exception error) {
+                msg.mostrarInformacionError("Solo debes usar números y la 'e' en caso de tener un exponente.");
+            }
+
+            double rta = n1.EnergiaSobreUnaCarga(n2, n3, n4, n5, n6);
+            double rta1 = n1.EnergiaTotal(n2, n3, n4, n5, n6);
+            ventana.getPrespuesta().getErta().setText(" La energia potencial sobre la carga es: " + rta + " (J) ");
+            ventana.getPrespuesta().getErta2().setText(" La energia total es: " + rta1 + " (J) ");
+
         }
     }
+}
 
 

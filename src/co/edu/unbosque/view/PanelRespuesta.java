@@ -10,6 +10,7 @@ import javax.swing.border.TitledBorder;
 public class PanelRespuesta extends JPanel{
 
     private JLabel erta;
+    private JLabel erta2;
 
     public PanelRespuesta() {
         setLayout(null);
@@ -30,6 +31,19 @@ public class PanelRespuesta extends JPanel{
         erta.setBounds(35, 35, 480, 80);
         add(erta);
 
+        erta2 = new JLabel();
+        erta2.setFont(font);
+        erta2.setBounds(35, 65, 480, 80);
+        add(erta2);
+
+    }
+
+    public JLabel getErta2() {
+        return erta2;
+    }
+
+    public void setErta2(JLabel erta2) {
+        this.erta2 = erta2;
     }
 
     public JLabel getErta() {
