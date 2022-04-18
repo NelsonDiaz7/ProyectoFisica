@@ -47,9 +47,9 @@ public class PanelPrincipal extends JPanel {
         add(btntema2);
         btntema2.setActionCommand("TEMA2");
 
-        btntema3 = new JButton("Tema 3");
+        btntema3 = new JButton("Capacitancia y potencial");
         btntema3.setFont(font);
-        btntema3.setBounds(180, 150, 170,30);
+        btntema3.setBounds(170, 150, 190,30);
         add(btntema3);
         btntema3.setActionCommand("TEMA3");
 

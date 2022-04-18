@@ -58,6 +58,28 @@ public class Controller implements ActionListener {
         //botones panel lamina cargada
         ventana.getPlaminaCargada().getBtnvolver().addActionListener(this);
         ventana.getPlaminaCargada().getBtncalcular().addActionListener(this);
+        //botones panel Capacitancia
+        ventana.getPcapacitancia().getBtncapacitorcilindro().addActionListener(this);
+        ventana.getPcapacitancia().getBtncapacitoresferico().addActionListener(this);
+        ventana.getPcapacitancia().getBtnlaminasparalelas().addActionListener(this);
+        ventana.getPcapacitancia().getBtnpotencialcilindro().addActionListener(this);
+        ventana.getPcapacitancia().getBtnpotencialesferico().addActionListener(this);
+        ventana.getPcapacitancia().getBtnvolver().addActionListener(this);
+        //botones panel Capacitancia cilindro
+        ventana.getPcapacitanciacilindro().getBtnvolver().addActionListener(this);
+        ventana.getPcapacitanciacilindro().getBtncalcular().addActionListener(this);
+        //botnes panel Capacitancia esfera
+        ventana.getPcapacitanciaesfera().getBtnvolver().addActionListener(this);
+        ventana.getPcapacitanciaesfera().getBtncalcular().addActionListener(this);
+        //botones panel Capacitancia laminas paralelas
+        ventana.getPcapacitancialaminasparalelas().getBtnvolver().addActionListener(this);
+        ventana.getPcapacitancialaminasparalelas().getBtncalcular().addActionListener(this);
+        //botones potencial del cilindro
+        ventana.getPpotencialcilindro().getBtnvolver().addActionListener(this);
+        ventana.getPpotencialcilindro().getBtncalcular().addActionListener(this);
+        //botones potencial de la esfera
+        ventana.getPpotencialesfera().getBtnvolver().addActionListener(this);
+        ventana.getPpotencialesfera().getBtncalcular().addActionListener(this);
         //botones panel suma capacitores
         ventana.getPsumacapa().getBtnVolver().addActionListener(this);
         ventana.getPsumacapa().getBtnsumaserie().addActionListener(this);
@@ -128,6 +150,10 @@ public class Controller implements ActionListener {
             ventana.getPprincipal().setVisible(false);
             ventana.getPleyGauss().setVisible(true);
         }
+        if (comando.equals("TEMA3")) {
+            ventana.getPprincipal().setVisible(false);
+            ventana.getPcapacitancia().setVisible(true);
+        }
         if (comando.equals("TEMA4")) {
             ventana.getPsumacapa().setVisible(true);
             ventana.getPprincipal().setVisible(false);
@@ -147,6 +173,210 @@ public class Controller implements ActionListener {
             ventana.getPprincipal().setVisible(false);
             ventana.getPenergiaAlmacenada().setVisible(true);
         }
+
+        //comandos panel Capacitancia
+
+        if (comando.equals("VOLVERCAPACITANCIA")) {
+            ventana.getPprincipal().setVisible(true);
+            ventana.getPcapacitancia().setVisible(false);
+        }
+
+        if (comando.equals("CAPACITANCIACILINDRO")) {
+            ventana.getPcapacitancia().setVisible(false);
+            ventana.getPcapacitanciacilindro().setVisible(true);
+            ventana.getPrespuesta().setVisible(true);
+        }
+
+        if (comando.equals("CAPACITANCIAESFERA")) {
+            ventana.getPcapacitancia().setVisible(false);
+            ventana.getPcapacitanciaesfera().setVisible(true);
+            ventana.getPrespuesta().setVisible(true);
+        }
+
+        if (comando.equals("LAMINAPARALELA")) {
+            ventana.getPcapacitancia().setVisible(false);
+            ventana.getPcapacitancialaminasparalelas().setVisible(true);
+            ventana.getPrespuesta().setVisible(true);
+        }
+
+        if (comando.equals("POTENCIALCILINDRO")) {
+            ventana.getPcapacitancia().setVisible(false);
+            ventana.getPpotencialcilindro().setVisible(true);
+            ventana.getPrespuesta().setVisible(true);
+        }
+        if (comando.equals("POTENCIALESFERA")) {
+            ventana.getPcapacitancia().setVisible(false);
+            ventana.getPpotencialesfera().setVisible(true);
+            ventana.getPrespuesta().setVisible(true);
+        }
+
+        //Panel capacitancia del cilindro
+
+        if (comando.equals("VOLVERCAPACITANCIACILINDRO")) {
+            ventana.getPcapacitancia().setVisible(true);
+            ventana.getPcapacitanciacilindro().setVisible(false);
+            ventana.getPrespuesta().setVisible(false);
+        }
+
+        if (comando.equals("CALCULARCAPACITANCIACILINDRO")) {
+            try {
+                aux = ventana.getPcapacitanciacilindro().getTxtlongitud().getText();
+                aux_dou = Double.parseDouble(aux);
+                n1 = new Numero(aux_dou);
+                System.out.println(aux);
+
+                aux = ventana.getPcapacitanciacilindro().getTxtradio1().getText();
+                aux_dou = Double.parseDouble(aux);
+                n2 = new Numero(aux_dou);
+                System.out.println(aux);
+
+                aux = ventana.getPcapacitanciacilindro().getTxtradio2().getText();
+                aux_dou = Double.parseDouble(aux);
+                n3 = new Numero(aux_dou);
+                System.out.println(aux);
+
+            } catch (Exception error) {
+                msg.mostrarInformacionError("Solo debes usar números y la 'e' en caso de tener un exponente.");
+            }
+
+            double rta = n1.CapacitanciaCilindro(n2,n3);
+            ventana.getPrespuesta().getErta().setText(" La capacitancia del cilindro es : " + rta + " (F) ");
+
+        }
+        //Panel capacitancia de la esfera
+
+        if (comando.equals("VOLVERCAPACITANCIAESFERA")) {
+            ventana.getPcapacitancia().setVisible(true);
+            ventana.getPcapacitanciaesfera().setVisible(false);
+            ventana.getPrespuesta().setVisible(false);
+        }
+
+        if (comando.equals("CALCULARCAPACITANCIAESFERA")) {
+            try {
+                aux = ventana.getPcapacitanciaesfera().getTxtradio1().getText();
+                aux_dou = Double.parseDouble(aux);
+                n1 = new Numero(aux_dou);
+                System.out.println(aux);
+
+                aux = ventana.getPcapacitanciaesfera().getTxtradio2().getText();
+                aux_dou = Double.parseDouble(aux);
+                n2 = new Numero(aux_dou);
+                System.out.println(aux);
+
+            } catch (Exception error) {
+                msg.mostrarInformacionError("Solo debes usar números y la 'e' en caso de tener un exponente.");
+            }
+
+            double rta = n1.CapacitanciaEsfera(n2);
+            ventana.getPrespuesta().getErta().setText(" La capacitancia de la esfera es: " + rta + " (F) ");
+
+        }
+
+        //Panel capacitancia de laminas paralelas
+
+        if (comando.equals("VOLVERLAMINASPARALELAS")) {
+            ventana.getPcapacitancia().setVisible(true);
+            ventana.getPcapacitancialaminasparalelas().setVisible(false);
+            ventana.getPrespuesta().setVisible(false);
+        }
+
+        if (comando.equals("CALCULARLAMINASPARALELAS")) {
+            try {
+                aux = ventana.getPcapacitancialaminasparalelas().getTxtarea().getText();
+                aux_dou = Double.parseDouble(aux);
+                n1 = new Numero(aux_dou);
+                System.out.println(aux);
+
+                aux = ventana.getPcapacitancialaminasparalelas().getTxtdistancia().getText();
+                aux_dou = Double.parseDouble(aux);
+                n2 = new Numero(aux_dou);
+                System.out.println(aux);
+
+            } catch (Exception error) {
+                msg.mostrarInformacionError("Solo debes usar números y la 'e' en caso de tener un exponente.");
+            }
+
+            double rta = n1.CapacitanciaLaminasParalelas(n2);
+            ventana.getPrespuesta().getErta().setText(" La capacitancia de las laminas paralelas es: " + rta + " (F) ");
+
+        }
+
+        //Panel Potencial del cilindro
+
+        if (comando.equals("VOLVERPOTENCIALCILINDRO")) {
+            ventana.getPcapacitancia().setVisible(true);
+            ventana.getPpotencialcilindro().setVisible(false);
+            ventana.getPrespuesta().setVisible(false);
+        }
+
+        if (comando.equals("CALCULARPOTENCIALCILINDRO")) {
+            try {
+                aux = ventana.getPpotencialcilindro().getTxtlongitud().getText();
+                aux_dou = Double.parseDouble(aux);
+                n1 = new Numero(aux_dou);
+                System.out.println(aux);
+
+                aux = ventana.getPpotencialcilindro().getTxtcarga().getText();
+                aux_dou = Double.parseDouble(aux);
+                n2 = new Numero(aux_dou);
+                System.out.println(aux);
+
+                aux = ventana.getPpotencialcilindro().getTxtradio1().getText();
+                aux_dou = Double.parseDouble(aux);
+                n3 = new Numero(aux_dou);
+                System.out.println(aux);
+
+                aux = ventana.getPpotencialcilindro().getTxtradio2().getText();
+                aux_dou = Double.parseDouble(aux);
+                n4 = new Numero(aux_dou);
+                System.out.println(aux);
+
+            } catch (Exception error) {
+                msg.mostrarInformacionError("Solo debes usar números y la 'e' en caso de tener un exponente.");
+            }
+
+            double rta = n1.PotencialCilindro(n2,n3,n4);
+            ventana.getPrespuesta().getErta().setText(" El potencial de el cilindro es: " + rta + " (V) ");//cambiar unidades
+
+
+        }
+
+        //Panel Potencial de la esfera
+
+        if (comando.equals("VOLVERPOTENCIALESFERA")) {
+            ventana.getPcapacitancia().setVisible(true);
+            ventana.getPpotencialesfera().setVisible(false);
+            ventana.getPrespuesta().setVisible(false);
+        }
+
+        if (comando.equals("CALCULARPOTENCIALESFERA")) {
+            try {
+                aux = ventana.getPpotencialesfera().getTxtcarga().getText();
+                aux_dou = Double.parseDouble(aux);
+                n1 = new Numero(aux_dou);
+                System.out.println(aux);
+
+                aux = ventana.getPpotencialesfera().getTxtradio1().getText();
+                aux_dou = Double.parseDouble(aux);
+                n2 = new Numero(aux_dou);
+                System.out.println(aux);
+
+                aux = ventana.getPpotencialesfera().getTxtradio2().getText();
+                aux_dou = Double.parseDouble(aux);
+                n3 = new Numero(aux_dou);
+                System.out.println(aux);
+
+            } catch (Exception error) {
+                msg.mostrarInformacionError("Solo debes usar números y la 'e' en caso de tener un exponente.");
+            }
+
+            double rta = n1.PotencialEsfera(n2,n3);
+            ventana.getPrespuesta().getErta().setText(" El potecnial de la esfera es: " + rta + " (V) ");
+
+
+        }
+
+
 
         //Comandos panel suma capacitores
         if (comando.equals("VOLVERSUM")) {

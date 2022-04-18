@@ -16,6 +16,12 @@ public class VentanaPrincipal extends JFrame{
     private PanelEsferaIn pesferaIn;
     private PanelLineaCargada plineaCargada;
     private PanelLaminaCargada plaminaCargada;
+    private PanelCapacitancia pcapacitancia;
+    private PanelCapacitanciaCilindro pcapacitanciacilindro;
+    private PanelCapacitanciaEsfera pcapacitanciaesfera;
+    private PanelCapacitanciaLaminasparalelas pcapacitancialaminasparalelas;
+    private PanelPotencialCilindro ppotencialcilindro;
+    private PanelPotencialEsfera ppotencialesfera;
     private PanelSumaCapacitores psumacapa;
     private PanelSumaParalelo psumaparalelo;
     private PanelSumaSerie psumaserie;
@@ -83,6 +89,30 @@ public class VentanaPrincipal extends JFrame{
         plaminaCargada = new PanelLaminaCargada();
         plaminaCargada.setBounds(25, 25, 535, 250);
         getContentPane().add(plaminaCargada);
+
+        pcapacitancia = new PanelCapacitancia();
+        pcapacitancia.setBounds(25, 25, 535, 415);
+        getContentPane().add(pcapacitancia);
+
+        pcapacitanciacilindro = new PanelCapacitanciaCilindro();
+        pcapacitanciacilindro.setBounds(25, 25, 535, 250);
+        getContentPane().add(pcapacitanciacilindro);
+
+        pcapacitanciaesfera = new PanelCapacitanciaEsfera();
+        pcapacitanciaesfera.setBounds(25, 25, 535, 250);
+        getContentPane().add(pcapacitanciaesfera);
+
+        pcapacitancialaminasparalelas = new PanelCapacitanciaLaminasparalelas();
+        pcapacitancialaminasparalelas.setBounds(25, 25, 535, 250);
+        getContentPane().add(pcapacitancialaminasparalelas);
+
+        ppotencialcilindro = new PanelPotencialCilindro();
+        ppotencialcilindro.setBounds(25, 25, 535, 250);
+        getContentPane().add(ppotencialcilindro);
+
+        ppotencialesfera= new PanelPotencialEsfera();
+        ppotencialesfera.setBounds(25, 25, 535, 250);
+        getContentPane().add(ppotencialesfera);
 
         psumacapa = new PanelSumaCapacitores();
         psumacapa.setBounds(25, 25, 535, 415);
@@ -204,6 +234,29 @@ public class VentanaPrincipal extends JFrame{
 
     public PanelSumaCapacitores getPsumacapa() {
         return psumacapa;
+    }
+
+    public PanelCapacitancia getPcapacitancia() {
+        return pcapacitancia;
+    }
+    public PanelCapacitanciaCilindro getPcapacitanciacilindro() {
+        return pcapacitanciacilindro;
+    }
+
+    public PanelCapacitanciaEsfera getPcapacitanciaesfera() {
+        return pcapacitanciaesfera;
+    }
+
+    public PanelCapacitanciaLaminasparalelas getPcapacitancialaminasparalelas() {
+        return pcapacitancialaminasparalelas;
+    }
+
+    public PanelPotencialCilindro getPpotencialcilindro() {
+        return ppotencialcilindro;
+    }
+
+    public PanelPotencialEsfera getPpotencialesfera() {
+        return ppotencialesfera;
     }
 
     public PanelLaminaCargada getPlaminaCargada() {

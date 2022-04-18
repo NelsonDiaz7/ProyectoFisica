@@ -80,6 +80,60 @@ public class Numero {
 
 
     }
+    public double CapacitanciaCilindro(Numero radio1,Numero radio2)
+
+    {
+        double constante = 8.85e-12;
+        double pi = Math.PI;
+        double part1 = 2 * (pi) * (constante) * num;
+        double part2 = Math.log(radio2.num / radio1.num);
+
+        double capacitanciacilindro = part1/part2;
+
+        return capacitanciacilindro;
+    }
+
+    public double CapacitanciaEsfera(Numero radio2)
+    {
+        double constante = 8.85e-12;
+        double pi = Math.PI;
+        double capacitanciaesfera = 4 * (pi) * ((constante)) * (((num * radio2.num) / (radio2.num-num))) ;
+
+        return capacitanciaesfera;
+    }
+
+    public double CapacitanciaLaminasParalelas(Numero distancia)
+    {
+        double constante = 8.85e-12;
+        double capacitancialaminasparalelas = num * (constante) / distancia.num;
+
+        return capacitancialaminasparalelas;
+    }
+
+    public double PotencialCilindro(Numero carga, Numero radio1, Numero radio2 )//dos radios
+    {
+        double constante = 8.85e-12;
+        double pi = Math.PI;
+        double lambda = carga.num/ carga.num;
+        double part1 = lambda / 2 * (pi) * (constante);
+        double part2 = Math.log(radio2.num / radio1.num);
+
+        double potencialcilindro = part1*part2;
+
+        return potencialcilindro;
+    }
+
+    public double PotencialEsfera( Numero radio1, Numero radio2)//dos radios
+    {
+        double constante = 8.85e-12;
+        double pi = Math.PI;
+        double part1 = 1 / (4 * (pi) * (constante));
+        double part2 = ((1 / radio1.num)-(1 / radio2.num));
+
+        double potencialesfera = num * part1 * part2;
+
+        return potencialesfera;
+    }
 
     public double SumaParalelo(Numero ca1, Numero ca2) {
 
