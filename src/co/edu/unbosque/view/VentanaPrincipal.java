@@ -37,7 +37,11 @@ public class VentanaPrincipal extends JFrame{
     private PanelEneAlm3 peneAlm3;
     private PanelDenEne1 pdenEne1;
     private PanelDenEne2 pdenEne2;
-
+    private PanelCapacitorConD pcapConD;
+    private PanelConstDie pconstDie;
+    private PanelCampoElectricoD pCampoElectricoD;
+    private PanelCapacitanciaconD pCapacitanciaD;
+    private PanelPotencialConD pPotencialD;
 
 
     public VentanaPrincipal() {
@@ -174,109 +178,25 @@ public class VentanaPrincipal extends JFrame{
         pdenEne2.setBounds(25, 25, 535, 250);
         getContentPane().add(pdenEne2);
 
-    }
+        pcapConD = new PanelCapacitorConD();
+        pcapConD.setBounds(25,25,535,415);
+        getContentPane().add(pcapConD);
 
-    public PanelEneAlm1 getPeneAlm1() {
-        return peneAlm1;
-    }
+        pconstDie = new PanelConstDie();
+        pconstDie.setBounds(25,25,535,250);
+        getContentPane().add(pconstDie);
 
-    public PanelEneAlm2 getPeneAlm2() {
-        return peneAlm2;
-    }
+        pCampoElectricoD = new PanelCampoElectricoD();
+        pCampoElectricoD.setBounds(25,25,535,250);
+        getContentPane().add(pCampoElectricoD);
 
-    public PanelEneAlm3 getPeneAlm3() {
-        return peneAlm3;
-    }
+        pCapacitanciaD = new PanelCapacitanciaconD();
+        pCapacitanciaD.setBounds(25,25,535,250);
+        getContentPane().add(pCapacitanciaD);
 
-    public PanelDenEne1 getPdenEne1() {
-        return pdenEne1;
-    }
-
-    public PanelDenEne2 getPdenEne2() {
-        return pdenEne2;
-    }
-
-    public PanelEnergiaAlmacenada getPenergiaAlmacenada() {
-        return penergiaAlmacenada;
-    }
-
-    public PanelEnegiaDosCargas getPenergiadoscargas() {
-        return penergiadoscargas;
-    }
-
-    public PanelEnergiaUnaCarga getPenergiaUnaCarga() {
-        return penergiaUnaCarga;
-    }
-
-    public PanelEnegiaPotencial getPenergiapotencial() {
-        return penergiapotencial;
-    }
-
-    public PanelPotencialUnaCarga getPpotencialUnaCarga() {
-        return ppotencialUnaCarga;
-    }
-
-    public PanelPotencialMasCargas getPpotencialMasCargas() {
-        return ppotencialMasCargas;
-    }
-
-    public PanelPotencialElectrico getPpotencial() {
-        return ppotencial;
-    }
-
-    public PanelSumaSerie getPsumaserie() {
-        return psumaserie;
-    }
-
-    public PanelSumaParalelo getPsumaparalelo() {
-        return psumaparalelo;
-    }
-
-    public PanelSumaCapacitores getPsumacapa() {
-        return psumacapa;
-    }
-
-    public PanelCapacitancia getPcapacitancia() {
-        return pcapacitancia;
-    }
-    public PanelCapacitanciaCilindro getPcapacitanciacilindro() {
-        return pcapacitanciacilindro;
-    }
-
-    public PanelCapacitanciaEsfera getPcapacitanciaesfera() {
-        return pcapacitanciaesfera;
-    }
-
-    public PanelCapacitanciaLaminasparalelas getPcapacitancialaminasparalelas() {
-        return pcapacitancialaminasparalelas;
-    }
-
-    public PanelPotencialCilindro getPpotencialcilindro() {
-        return ppotencialcilindro;
-    }
-
-    public PanelPotencialEsfera getPpotencialesfera() {
-        return ppotencialesfera;
-    }
-
-    public PanelLaminaCargada getPlaminaCargada() {
-        return plaminaCargada;
-    }
-
-    public PanelLineaCargada getPlineaCargada() {
-        return plineaCargada;
-    }
-
-    public PanelEsferaIn getPesferaIn() {
-        return pesferaIn;
-    }
-
-    public PanelEsferaOut getPesferaOut() {
-        return pesferaOut;
-    }
-
-    public PanelLeyGauss getPleyGauss() {
-        return pleyGauss;
+        pPotencialD = new PanelPotencialConD();
+        pPotencialD.setBounds(25,25,535,250);
+        getContentPane().add(pPotencialD);
     }
 
     public PanelDatos getPdatos() {
@@ -299,4 +219,255 @@ public class VentanaPrincipal extends JFrame{
         return pprincipal;
     }
 
+    public void setPprincipal(PanelPrincipal pprincipal) {
+        this.pprincipal = pprincipal;
+    }
+
+    public PanelLeyGauss getPleyGauss() {
+        return pleyGauss;
+    }
+
+    public void setPleyGauss(PanelLeyGauss pleyGauss) {
+        this.pleyGauss = pleyGauss;
+    }
+
+    public PanelEsferaOut getPesferaOut() {
+        return pesferaOut;
+    }
+
+    public void setPesferaOut(PanelEsferaOut pesferaOut) {
+        this.pesferaOut = pesferaOut;
+    }
+
+    public PanelEsferaIn getPesferaIn() {
+        return pesferaIn;
+    }
+
+    public void setPesferaIn(PanelEsferaIn pesferaIn) {
+        this.pesferaIn = pesferaIn;
+    }
+
+    public PanelLineaCargada getPlineaCargada() {
+        return plineaCargada;
+    }
+
+    public void setPlineaCargada(PanelLineaCargada plineaCargada) {
+        this.plineaCargada = plineaCargada;
+    }
+
+    public PanelLaminaCargada getPlaminaCargada() {
+        return plaminaCargada;
+    }
+
+    public void setPlaminaCargada(PanelLaminaCargada plaminaCargada) {
+        this.plaminaCargada = plaminaCargada;
+    }
+
+    public PanelCapacitancia getPcapacitancia() {
+        return pcapacitancia;
+    }
+
+    public void setPcapacitancia(PanelCapacitancia pcapacitancia) {
+        this.pcapacitancia = pcapacitancia;
+    }
+
+    public PanelCapacitanciaCilindro getPcapacitanciacilindro() {
+        return pcapacitanciacilindro;
+    }
+
+    public void setPcapacitanciacilindro(PanelCapacitanciaCilindro pcapacitanciacilindro) {
+        this.pcapacitanciacilindro = pcapacitanciacilindro;
+    }
+
+    public PanelCapacitanciaEsfera getPcapacitanciaesfera() {
+        return pcapacitanciaesfera;
+    }
+
+    public void setPcapacitanciaesfera(PanelCapacitanciaEsfera pcapacitanciaesfera) {
+        this.pcapacitanciaesfera = pcapacitanciaesfera;
+    }
+
+    public PanelCapacitanciaLaminasparalelas getPcapacitancialaminasparalelas() {
+        return pcapacitancialaminasparalelas;
+    }
+
+    public void setPcapacitancialaminasparalelas(PanelCapacitanciaLaminasparalelas pcapacitancialaminasparalelas) {
+        this.pcapacitancialaminasparalelas = pcapacitancialaminasparalelas;
+    }
+
+    public PanelPotencialCilindro getPpotencialcilindro() {
+        return ppotencialcilindro;
+    }
+
+    public void setPpotencialcilindro(PanelPotencialCilindro ppotencialcilindro) {
+        this.ppotencialcilindro = ppotencialcilindro;
+    }
+
+    public PanelPotencialEsfera getPpotencialesfera() {
+        return ppotencialesfera;
+    }
+
+    public void setPpotencialesfera(PanelPotencialEsfera ppotencialesfera) {
+        this.ppotencialesfera = ppotencialesfera;
+    }
+
+    public PanelSumaCapacitores getPsumacapa() {
+        return psumacapa;
+    }
+
+    public void setPsumacapa(PanelSumaCapacitores psumacapa) {
+        this.psumacapa = psumacapa;
+    }
+
+    public PanelSumaParalelo getPsumaparalelo() {
+        return psumaparalelo;
+    }
+
+    public void setPsumaparalelo(PanelSumaParalelo psumaparalelo) {
+        this.psumaparalelo = psumaparalelo;
+    }
+
+    public PanelSumaSerie getPsumaserie() {
+        return psumaserie;
+    }
+
+    public void setPsumaserie(PanelSumaSerie psumaserie) {
+        this.psumaserie = psumaserie;
+    }
+
+    public PanelPotencialElectrico getPpotencial() {
+        return ppotencial;
+    }
+
+    public void setPpotencial(PanelPotencialElectrico ppotencial) {
+        this.ppotencial = ppotencial;
+    }
+
+    public PanelPotencialUnaCarga getPpotencialUnaCarga() {
+        return ppotencialUnaCarga;
+    }
+
+    public void setPpotencialUnaCarga(PanelPotencialUnaCarga ppotencialUnaCarga) {
+        this.ppotencialUnaCarga = ppotencialUnaCarga;
+    }
+
+    public PanelPotencialMasCargas getPpotencialMasCargas() {
+        return ppotencialMasCargas;
+    }
+
+    public void setPpotencialMasCargas(PanelPotencialMasCargas ppotencialMasCargas) {
+        this.ppotencialMasCargas = ppotencialMasCargas;
+    }
+
+    public PanelEnegiaPotencial getPenergiapotencial() {
+        return penergiapotencial;
+    }
+
+    public void setPenergiapotencial(PanelEnegiaPotencial penergiapotencial) {
+        this.penergiapotencial = penergiapotencial;
+    }
+
+    public PanelEnegiaDosCargas getPenergiadoscargas() {
+        return penergiadoscargas;
+    }
+
+    public void setPenergiadoscargas(PanelEnegiaDosCargas penergiadoscargas) {
+        this.penergiadoscargas = penergiadoscargas;
+    }
+
+    public PanelEnergiaUnaCarga getPenergiaUnaCarga() {
+        return penergiaUnaCarga;
+    }
+
+    public void setPenergiaUnaCarga(PanelEnergiaUnaCarga penergiaUnaCarga) {
+        this.penergiaUnaCarga = penergiaUnaCarga;
+    }
+
+    public PanelEnergiaAlmacenada getPenergiaAlmacenada() {
+        return penergiaAlmacenada;
+    }
+
+    public void setPenergiaAlmacenada(PanelEnergiaAlmacenada penergiaAlmacenada) {
+        this.penergiaAlmacenada = penergiaAlmacenada;
+    }
+
+    public PanelEneAlm1 getPeneAlm1() {
+        return peneAlm1;
+    }
+
+    public void setPeneAlm1(PanelEneAlm1 peneAlm1) {
+        this.peneAlm1 = peneAlm1;
+    }
+
+    public PanelEneAlm2 getPeneAlm2() {
+        return peneAlm2;
+    }
+
+    public void setPeneAlm2(PanelEneAlm2 peneAlm2) {
+        this.peneAlm2 = peneAlm2;
+    }
+
+    public PanelEneAlm3 getPeneAlm3() {
+        return peneAlm3;
+    }
+
+    public void setPeneAlm3(PanelEneAlm3 peneAlm3) {
+        this.peneAlm3 = peneAlm3;
+    }
+
+    public PanelDenEne1 getPdenEne1() {
+        return pdenEne1;
+    }
+
+    public void setPdenEne1(PanelDenEne1 pdenEne1) {
+        this.pdenEne1 = pdenEne1;
+    }
+
+    public PanelDenEne2 getPdenEne2() {
+        return pdenEne2;
+    }
+
+    public void setPdenEne2(PanelDenEne2 pdenEne2) {
+        this.pdenEne2 = pdenEne2;
+    }
+
+    public PanelCapacitorConD getPcapConD() {
+        return pcapConD;
+    }
+
+    public void setPcapConD(PanelCapacitorConD pcapConD) {
+        this.pcapConD = pcapConD;
+    }
+
+    public PanelConstDie getPconstDie() {
+        return pconstDie;
+    }
+
+    public void setPconstDie(PanelConstDie pconstDie) {
+        this.pconstDie = pconstDie;
+    }
+
+    public PanelCampoElectricoD getpCampoElectricoD() {
+        return pCampoElectricoD;
+    }
+
+    public void setpCampoElectricoD(PanelCampoElectricoD pCampoElectricoD) {
+        this.pCampoElectricoD = pCampoElectricoD;
+    }
+
+    public PanelCapacitanciaconD getpCapacitanciaD() {
+        return pCapacitanciaD;
+    }
+
+    public void setpCapacitanciaD(PanelCapacitanciaconD pCapacitanciaD) {
+        this.pCapacitanciaD = pCapacitanciaD;
+    }
+
+    public PanelPotencialConD getpPotencialD() {
+        return pPotencialD;
+    }
+
+    public void setpPotencialD(PanelPotencialConD pPotencialD) {
+        this.pPotencialD = pPotencialD;
+    }
 }

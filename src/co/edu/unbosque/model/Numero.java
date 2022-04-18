@@ -234,6 +234,26 @@ public class Numero {
         return densidadEnergia;
     }
 
+    public double CDconstanteD(Numero dis){
+        double constanteDielectrica = num /dis.num;
+        return constanteDielectrica;
+    }
+
+    public double campoElectricoD(Numero dis){
+        double campoElectricoconD = num/dis.num;
+        return campoElectricoconD;
+    }
+
+    public double capacitanciaD(Numero dis){
+        double capacitanciaconD = num * dis.num;
+        return capacitanciaconD;
+    }
+
+    public double potencialD(Numero dis){
+        double potencialconD = num / dis.num;
+        return potencialconD;
+    }
+
 
     public double getNum() {
         return num;

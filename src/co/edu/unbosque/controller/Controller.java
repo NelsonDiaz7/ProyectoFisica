@@ -40,6 +40,7 @@ public class Controller implements ActionListener {
         ventana.getPprincipal().getBtntema5().addActionListener(this);
         ventana.getPprincipal().getBtntema6().addActionListener(this);
         ventana.getPprincipal().getBtntema7().addActionListener(this);
+        ventana.getPprincipal().getBtntema8().addActionListener(this);
         //botones panel gauss
         ventana.getPleyGauss().getBtnfueraesfera().addActionListener(this);
         ventana.getPleyGauss().getBtndentroesfera().addActionListener(this);
@@ -132,6 +133,24 @@ public class Controller implements ActionListener {
         //botones panel densidad energia2
         ventana.getPdenEne2().getBtnvolver().addActionListener(this);
         ventana.getPdenEne2().getBtncalcular().addActionListener(this);
+        //botones panel capacitor con dielectrico
+        ventana.getPcapConD().getBtnVolver().addActionListener(this);
+        ventana.getPcapConD().getBtnConstDie().addActionListener(this);
+        ventana.getPcapConD().getBtnCampoElectricoD().addActionListener(this);
+        ventana.getPcapConD().getBtnCapacitanciaD().addActionListener(this);
+        ventana.getPcapConD().getBtnPotencialD().addActionListener(this);
+        //botones panel capacitor con dielectrico1
+        ventana.getPconstDie().getBtnVolver().addActionListener(this);
+        ventana.getPconstDie().getBtnCalcular().addActionListener(this);
+        //botones panel capacitor con dielectrico2
+        ventana.getpCampoElectricoD().getBtnVolver().addActionListener(this);
+        ventana.getpCampoElectricoD().getBtnCalcular().addActionListener(this);
+        //botones panel capacitor con dielectrico3
+        ventana.getpCapacitanciaD().getBtnVolver().addActionListener(this);
+        ventana.getpCapacitanciaD().getBtnCalcular().addActionListener(this);
+        //botones panel capacitor con dielectrico4
+        ventana.getpPotencialD().getBtnVolver().addActionListener(this);
+        ventana.getpPotencialD().getBtnCalcular().addActionListener(this);
     }
 
     @Override
@@ -172,6 +191,144 @@ public class Controller implements ActionListener {
         if (comando.equals("TEMA7")) {
             ventana.getPprincipal().setVisible(false);
             ventana.getPenergiaAlmacenada().setVisible(true);
+        }
+
+        if (comando.equals("TEMA8")){
+            ventana.getPprincipal().setVisible(false);
+            ventana.getPcapConD().setVisible(true);
+        }
+
+        //Comandos panel Capacitor con dielectrico
+        if (comando.equals("VOLVERCAPACITORCOND")) {
+            ventana.getPcapConD().setVisible(false);
+            ventana.getPprincipal().setVisible(true);
+        }
+
+        if (comando.equals("CONSTDIE")){
+            ventana.getPcapConD().setVisible(false);
+            ventana.getPconstDie().setVisible(true);
+            ventana.getPrespuesta().setVisible(true);
+        }
+
+        if (comando.equals("VOLVERCONSTANTED")){
+            ventana.getPcapConD().setVisible(true);
+            ventana.getPrespuesta().setVisible(false);
+            ventana.getPconstDie().setVisible(false);
+        }
+
+        if (comando.equals("CALCONSTD")){
+            try {
+                aux = ventana.getPconstDie().getTxtCapConD().getText();
+                aux_dou = Double.parseDouble(aux);
+                n1 = new Numero(aux_dou);
+                System.out.println(aux);
+
+                aux = ventana.getPconstDie().getTxtCapSinD().getText();
+                aux_dou = Double.parseDouble(aux);
+                n2 = new Numero(aux_dou);
+                System.out.println(aux);
+            }
+            catch (Exception error){
+                msg.mostrarInformacionError("Solo debes usar números y la 'e' en caso de tener un exponente.");
+            }
+
+            double rta = n1.CDconstanteD(n2);
+            ventana.getPrespuesta().getErta().setText("La constante dieléctrica es: "+ rta);
+        }
+
+        if (comando.equals("CAMPOELECTRICOD")){
+            ventana.getPcapConD().setVisible(false);
+            ventana.getpCampoElectricoD().setVisible(true);
+            ventana.getPrespuesta().setVisible(true);
+        }
+
+        if (comando.equals("VOLVERCAMPOELECTRICOD")){
+            ventana.getPcapConD().setVisible(true);
+            ventana.getPrespuesta().setVisible(false);
+            ventana.getpCampoElectricoD().setVisible(false);
+        }
+
+        if (comando.equals("CALCULARCAMPOELECTRICOD")){
+            try {
+                aux = ventana.getpCampoElectricoD().getTxtCapSinD().getText();
+                aux_dou = Double.parseDouble(aux);
+                n1 = new Numero(aux_dou);
+                System.out.println(aux);
+
+                aux = ventana.getpCampoElectricoD().getTxtConsD().getText();
+                aux_dou = Double.parseDouble(aux);
+                n2 = new Numero(aux_dou);
+                System.out.println(aux);
+            }
+            catch (Exception error){
+                msg.mostrarInformacionError("Solo debes usar números y la 'e' en caso de tener un exponente.");
+            }
+
+            double rta = n1.campoElectricoD(n2);
+            ventana.getPrespuesta().getErta().setText("El campo eléctrico con dieléctrico es "+ rta +" V/m");
+        }
+
+        if (comando.equals("POTENCIALD")){
+            ventana.getPcapConD().setVisible(false);
+            ventana.getpPotencialD().setVisible(true);
+            ventana.getPrespuesta().setVisible(true);
+        }
+
+        if (comando.equals("VOLVERPOTENCIALD")){
+            ventana.getPcapConD().setVisible(true);
+            ventana.getPrespuesta().setVisible(false);
+            ventana.getpPotencialD().setVisible(false);
+        }
+
+        if (comando.equals("CALCULARPOTENCIALD")){
+            try {
+                aux = ventana.getpPotencialD().getTxtVoltaje().getText();
+                aux_dou = Double.parseDouble(aux);
+                n1 = new Numero(aux_dou);
+                System.out.println(aux);
+
+                aux = ventana.getpPotencialD().getTxtConstanteDiolectrico().getText();
+                aux_dou = Double.parseDouble(aux);
+                n2 = new Numero(aux_dou);
+                System.out.println(aux);
+            }
+            catch (Exception error){
+                msg.mostrarInformacionError("Solo debes usar números y la 'e' en caso de tener un exponente.");
+            }
+            double rta = n1.potencialD(n2);
+            ventana.getPrespuesta().getErta().setText("El potencial eléctrico del capacitor con dieléctrico es \n" +
+                    rta +" V");
+        }
+
+        if (comando.equals("CAPACITANCIAD")){
+            ventana.getPcapConD().setVisible(false);
+            ventana.getpCapacitanciaD().setVisible(true);
+            ventana.getPrespuesta().setVisible(true);
+        }
+
+        if (comando.equals("VOLVERCAPACITANCIAD")){
+            ventana.getPcapConD().setVisible(true);
+            ventana.getPrespuesta().setVisible(false);
+            ventana.getpCapacitanciaD().setVisible(false);
+        }
+
+        if (comando.equals("CALCULARCAPACITANCIAD")){
+            try{
+                aux = ventana.getpCapacitanciaD().getTxtCapSinDiolectrico().getText();
+                aux_dou = Double.parseDouble(aux);
+                n1 = new Numero(aux_dou);
+                System.out.println(aux);
+
+                aux = ventana.getpCapacitanciaD().getTxtConsDeDiolectrico().getText();
+                aux_dou = Double.parseDouble(aux);
+                n2 = new Numero(aux_dou);
+                System.out.println(aux);
+            }
+            catch (Exception error){
+                msg.mostrarInformacionError("Solo debes usar números y la 'e' en caso de tener un exponente.");
+            }
+            double rta = n1.capacitanciaD(n2);
+            ventana.getPrespuesta().getErta().setText("La capacitancia con dieléctrico es "+ rta +" F");
         }
 
         //comandos panel Capacitancia
