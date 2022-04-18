@@ -25,6 +25,14 @@ public class VentanaPrincipal extends JFrame{
     private PanelEnegiaPotencial penergiapotencial;
     private PanelEnegiaDosCargas penergiadoscargas;
     private PanelEnergiaUnaCarga penergiaUnaCarga;
+    private PanelEnergiaAlmacenada penergiaAlmacenada;
+    private PanelEneAlm1 peneAlm1;
+    private PanelEneAlm2 peneAlm2;
+    private PanelEneAlm3 peneAlm3;
+    private PanelDenEne1 pdenEne1;
+    private PanelDenEne2 pdenEne2;
+
+
 
     public VentanaPrincipal() {
 
@@ -112,6 +120,54 @@ public class VentanaPrincipal extends JFrame{
         penergiaUnaCarga.setBounds(25, 25, 535, 250);
         getContentPane().add(penergiaUnaCarga);
 
+        penergiaAlmacenada = new PanelEnergiaAlmacenada();
+        penergiaAlmacenada.setBounds(25, 25, 535, 415);
+        getContentPane().add(penergiaAlmacenada);
+
+        peneAlm1 = new PanelEneAlm1();
+        peneAlm1.setBounds(25, 25, 535, 250);
+        getContentPane().add(peneAlm1);
+
+        peneAlm2 = new PanelEneAlm2();
+        peneAlm2.setBounds(25, 25, 535, 250);
+        getContentPane().add(peneAlm2);
+
+        peneAlm3 = new PanelEneAlm3();
+        peneAlm3.setBounds(25, 25, 535, 250);
+        getContentPane().add(peneAlm3);
+
+        pdenEne1 = new PanelDenEne1();
+        pdenEne1.setBounds(25, 25, 535, 250);
+        getContentPane().add(pdenEne1);
+
+        pdenEne2 = new PanelDenEne2();
+        pdenEne2.setBounds(25, 25, 535, 250);
+        getContentPane().add(pdenEne2);
+
+    }
+
+    public PanelEneAlm1 getPeneAlm1() {
+        return peneAlm1;
+    }
+
+    public PanelEneAlm2 getPeneAlm2() {
+        return peneAlm2;
+    }
+
+    public PanelEneAlm3 getPeneAlm3() {
+        return peneAlm3;
+    }
+
+    public PanelDenEne1 getPdenEne1() {
+        return pdenEne1;
+    }
+
+    public PanelDenEne2 getPdenEne2() {
+        return pdenEne2;
+    }
+
+    public PanelEnergiaAlmacenada getPenergiaAlmacenada() {
+        return penergiaAlmacenada;
     }
 
     public PanelEnegiaDosCargas getPenergiadoscargas() {

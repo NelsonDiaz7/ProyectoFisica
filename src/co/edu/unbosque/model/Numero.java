@@ -42,7 +42,7 @@ public class Numero {
     }
 
     public double CampoEsferaOut(Numero otro) {
-        double constante = 8.85e12;
+        double constante = 8.85e-12;
         double pi = Math.PI;
         double campo = num / ((4) * (pi) * (Math.pow(otro.num, 2)) * (constante));
 
@@ -50,7 +50,7 @@ public class Numero {
     }
 
     public double CampoEsferaIn(Numero radior, Numero radioR) {
-        double constante = 8.85e12;
+        double constante = 8.85e-12;
         double pi = Math.PI;
         double densidad = num / ((1.333333) * (pi) * (Math.pow(radioR.num, 3)));
 
@@ -60,7 +60,7 @@ public class Numero {
     }
 
     public double CampoLineaCargada (Numero longi, Numero radio) {
-        double constante = 8.85e12;
+        double constante = 8.85e-12;
         double pi = Math.PI;
         double landa =  num / longi.num;
 
@@ -71,7 +71,7 @@ public class Numero {
 
     public double CampoLaminaCargada(Numero longi)
     {
-        double constante = 8.85e12;
+        double constante = 8.85e-12;
         double densidadsuperficial =  num / longi.num;
 
         double campo = (densidadsuperficial) / ((2)*constante);
@@ -144,6 +144,43 @@ public class Numero {
 
         return UT;
     }
+
+    public double EnergiaAlm1(Numero cap)
+    {
+        double energiaAlm = Math.pow(num,2)/ (2*cap.num);
+
+        return energiaAlm;
+    }
+
+    public double EnergiaAlm2(Numero vol)
+    {
+        double energiaAlm = (0.5)*(num)*(Math.pow(vol.num,2));
+
+        return energiaAlm;
+    }
+
+    public double EnergiaAlm3(Numero vol)
+    {
+        double energiaAlm = (0.5)*(num)*(vol.num);
+
+        return energiaAlm;
+    }
+
+    public double DensidadEne1(Numero area, Numero dis)
+    {
+        double densidadEnergia = num/(area.num*dis.num);
+
+        return densidadEnergia;
+    }
+
+    public double DensidadEne2()
+    {
+        double constante = 8.85e-12;
+        double densidadEnergia = (0.5)*(constante)*(Math.pow(num,2));
+        return densidadEnergia;
+    }
+
+
     public double getNum() {
         return num;
     }

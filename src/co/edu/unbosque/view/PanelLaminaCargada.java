@@ -37,7 +37,7 @@ public class PanelLaminaCargada extends JPanel {
         erecordar.setBounds(140, 20, 300, 20);
         add(erecordar);
 
-        lblcarga = new JLabel("Carga (N/C): ");
+        lblcarga = new JLabel("Carga (C): ");
         lblcarga.setBounds(90,50,100,20);
         add(lblcarga);
 

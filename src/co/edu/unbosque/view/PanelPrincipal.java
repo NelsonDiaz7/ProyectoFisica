@@ -13,6 +13,7 @@ public class PanelPrincipal extends JPanel {
     private JButton btntema4;
     private JButton btntema5;
     private JButton btntema6;
+    private JButton btntema7;
 
 
     public PanelPrincipal() {
@@ -70,7 +71,16 @@ public class PanelPrincipal extends JPanel {
         add(btntema6);
         btntema6.setActionCommand("TEMA6");
 
+        btntema7 = new JButton("Energía Almacenada");
+        btntema7.setFont(font);
+        btntema7.setBounds(180, 310, 170,30);
+        add(btntema7);
+        btntema7.setActionCommand("TEMA7");
 
+    }
+
+    public JButton getBtntema7() {
+        return btntema7;
     }
 
     public JButton getBtntema6() {

@@ -39,6 +39,7 @@ public class Controller implements ActionListener {
         ventana.getPprincipal().getBtntema4().addActionListener(this);
         ventana.getPprincipal().getBtntema5().addActionListener(this);
         ventana.getPprincipal().getBtntema6().addActionListener(this);
+        ventana.getPprincipal().getBtntema7().addActionListener(this);
         //botones panel gauss
         ventana.getPleyGauss().getBtnfueraesfera().addActionListener(this);
         ventana.getPleyGauss().getBtndentroesfera().addActionListener(this);
@@ -82,13 +83,33 @@ public class Controller implements ActionListener {
         ventana.getPenergiapotencial().getBtnEnegiaPotencialdoscargas().addActionListener(this);
         ventana.getPenergiapotencial().getBtnEnegiaSobreunaCarga().addActionListener(this);
         //botones panel Energia potencial sobre una carga
-
         ventana.getPenergiaUnaCarga().getBtnvolver().addActionListener(this);
         ventana.getPenergiaUnaCarga().getBtncalcular().addActionListener(this);
-
         //botones panel Energia potencial sobre dos cargas
         ventana.getPenergiadoscargas().getBtnvolver().addActionListener(this);
         ventana.getPenergiadoscargas().getBtncalcular().addActionListener(this);
+        //botones panel Energia almacenada
+        ventana.getPenergiaAlmacenada().getBtnvolver().addActionListener(this);
+        ventana.getPenergiaAlmacenada().getBtnEnergiaAlmacenada().addActionListener(this);
+        ventana.getPenergiaAlmacenada().getBtnEnergiaAlmacenada2().addActionListener(this);
+        ventana.getPenergiaAlmacenada().getBtnEnergiaAlmacenada3().addActionListener(this);
+        ventana.getPenergiaAlmacenada().getBtnDensidadEnergia1().addActionListener(this);
+        ventana.getPenergiaAlmacenada().getBtnDensidadEnergia2().addActionListener(this);
+        //botones panel Energia almacenada1
+        ventana.getPeneAlm1().getBtnvolver().addActionListener(this);
+        ventana.getPeneAlm1().getBtncalcular().addActionListener(this);
+        //botones panel Energia almacenada2
+        ventana.getPeneAlm2().getBtnvolver().addActionListener(this);
+        ventana.getPeneAlm2().getBtncalcular().addActionListener(this);
+        //botones panel Energia almacenada3
+        ventana.getPeneAlm3().getBtnvolver().addActionListener(this);
+        ventana.getPeneAlm3().getBtncalcular().addActionListener(this);
+        //botenes panel densidad energia1
+        ventana.getPdenEne1().getBtnvolver().addActionListener(this);
+        ventana.getPdenEne1().getBtncalcular().addActionListener(this);
+        //botones panel densidad energia2
+        ventana.getPdenEne2().getBtnvolver().addActionListener(this);
+        ventana.getPdenEne2().getBtncalcular().addActionListener(this);
     }
 
     @Override
@@ -120,6 +141,11 @@ public class Controller implements ActionListener {
         if (comando.equals("TEMA6")) {
             ventana.getPenergiapotencial().setVisible(true);
             ventana.getPprincipal().setVisible(false);
+        }
+
+        if (comando.equals("TEMA7")) {
+            ventana.getPprincipal().setVisible(false);
+            ventana.getPenergiaAlmacenada().setVisible(true);
         }
 
         //Comandos panel suma capacitores
@@ -178,6 +204,43 @@ public class Controller implements ActionListener {
 
             ventana.getPenergiapotencial().setVisible(false);
             ventana.getPenergiadoscargas().setVisible(true);
+            ventana.getPrespuesta().setVisible(true);
+        }
+
+        //Comandos panel energia almacenada
+
+        if (comando.equals("VOLVERENERGIAALMA")) {
+            ventana.getPenergiaAlmacenada().setVisible(false);
+            ventana.getPprincipal().setVisible(true);
+        }
+
+        if (comando.equals("ENEALM1")) {
+            ventana.getPenergiaAlmacenada().setVisible(false);
+            ventana.getPeneAlm1().setVisible(true);
+            ventana.getPrespuesta().setVisible(true);
+        }
+
+        if (comando.equals("ENEALM2")) {
+            ventana.getPenergiaAlmacenada().setVisible(false);
+            ventana.getPeneAlm2().setVisible(true);
+            ventana.getPrespuesta().setVisible(true);
+        }
+
+        if (comando.equals("ENEALM3")) {
+            ventana.getPenergiaAlmacenada().setVisible(false);
+            ventana.getPeneAlm3().setVisible(true);
+            ventana.getPrespuesta().setVisible(true);
+        }
+
+        if (comando.equals("DENEN1")) {
+            ventana.getPenergiaAlmacenada().setVisible(false);
+            ventana.getPdenEne1().setVisible(true);
+            ventana.getPrespuesta().setVisible(true);
+        }
+
+        if (comando.equals("DENEN2")) {
+            ventana.getPenergiaAlmacenada().setVisible(false);
+            ventana.getPdenEne2().setVisible(true);
             ventana.getPrespuesta().setVisible(true);
         }
 
@@ -649,7 +712,165 @@ public class Controller implements ActionListener {
             ventana.getPrespuesta().getErta2().setText(" La energia total es: " + rta1 + " (J) ");
 
         }
+
+        //comandos energia almacenada 1
+
+        if (comando.equals("VOLVERALM1")) {
+
+            ventana.getPenergiaAlmacenada().setVisible(true);
+            ventana.getPeneAlm1().setVisible(false);
+            ventana.getPrespuesta().setVisible(false);
+        }
+
+        if (comando.equals("CALCULARALM1")) {
+
+            try {
+                aux = ventana.getPeneAlm1().getTxtcarga().getText();
+                aux_dou = Double.parseDouble(aux);
+                n1 = new Numero(aux_dou);
+                System.out.println(aux);
+
+                aux = ventana.getPeneAlm1().getTxtcapacitancia().getText();
+                aux_dou = Double.parseDouble(aux);
+                n2 = new Numero(aux_dou);
+                System.out.println(aux);
+
+
+            } catch (Exception error) {
+                msg.mostrarInformacionError("Solo debes usar números y la 'e' en caso de tener un exponente.");
+            }
+
+            double rta = n1.EnergiaAlm1(n2);
+            ventana.getPrespuesta().getErta().setText(" La energia Almacenada es: " + rta + " (J) ");
+
+        }
+
+        //comandos energia almacenada 2
+
+        if (comando.equals("VOLVERALM2")) {
+
+            ventana.getPenergiaAlmacenada().setVisible(true);
+            ventana.getPeneAlm2().setVisible(false);
+            ventana.getPrespuesta().setVisible(false);
+        }
+
+        if (comando.equals("CALCULARALM2")) {
+
+            try {
+                aux = ventana.getPeneAlm2().getTxtcapacitancia().getText();
+                aux_dou = Double.parseDouble(aux);
+                n1 = new Numero(aux_dou);
+                System.out.println(aux);
+
+                aux = ventana.getPeneAlm2().getTxtvoltaje().getText();
+                aux_dou = Double.parseDouble(aux);
+                n2 = new Numero(aux_dou);
+                System.out.println(aux);
+
+
+            } catch (Exception error) {
+                msg.mostrarInformacionError("Solo debes usar números y la 'e' en caso de tener un exponente.");
+            }
+
+            double rta = n1.EnergiaAlm2(n2);
+            ventana.getPrespuesta().getErta().setText(" La energia almacenada es: " + rta + " (J) ");
+
+        }
+        //comandos energia almacenada 3
+
+        if (comando.equals("VOLVERALM3")) {
+
+            ventana.getPenergiaAlmacenada().setVisible(true);
+            ventana.getPeneAlm3().setVisible(false);
+            ventana.getPrespuesta().setVisible(false);
+        }
+
+        if (comando.equals("CALCULARALM3")) {
+
+            try {
+                aux = ventana.getPeneAlm3().getTxtcarga().getText();
+                aux_dou = Double.parseDouble(aux);
+                n1 = new Numero(aux_dou);
+                System.out.println(aux);
+
+                aux = ventana.getPeneAlm3().getTxtvoltaje().getText();
+                aux_dou = Double.parseDouble(aux);
+                n2 = new Numero(aux_dou);
+                System.out.println(aux);
+
+
+            } catch (Exception error) {
+                msg.mostrarInformacionError("Solo debes usar números y la 'e' en caso de tener un exponente.");
+            }
+
+            double rta = n1.EnergiaAlm3(n2);
+            ventana.getPrespuesta().getErta().setText(" La energia almacenada es: " + rta + " (J) ");
+
+        }
+
+            //comandos densidad energia1
+
+        if (comando.equals("VOLVERDEN1")) {
+
+            ventana.getPenergiaAlmacenada().setVisible(true);
+            ventana.getPdenEne1().setVisible(false);
+            ventana.getPrespuesta().setVisible(false);
+        }
+
+        if (comando.equals("CALCULARDEN1")) {
+
+            try {
+                aux = ventana.getPdenEne1().getTxtEnergiaalmacenada().getText();
+                aux_dou = Double.parseDouble(aux);
+                n1 = new Numero(aux_dou);
+                System.out.println(aux);
+
+                aux = ventana.getPdenEne1().getTxtarea().getText();
+                aux_dou = Double.parseDouble(aux);
+                n2 = new Numero(aux_dou);
+                System.out.println(aux);
+
+                aux = ventana.getPdenEne1().getTxtdistancia().getText();
+                aux_dou = Double.parseDouble(aux);
+                n3 = new Numero(aux_dou);
+                System.out.println(aux);
+
+
+            } catch (Exception error) {
+                msg.mostrarInformacionError("Solo debes usar números y la 'e' en caso de tener un exponente.");
+            }
+
+            double rta = n1.DensidadEne1(n2,n3);
+            ventana.getPrespuesta().getErta().setText(" La energia almacenada es: " + rta + " (J/m^3) ");
+
+        }
+
+        //comandos densidad energia2
+
+        if (comando.equals("VOLVERDEN2")) {
+
+            ventana.getPenergiaAlmacenada().setVisible(true);
+            ventana.getPdenEne2().setVisible(false);
+            ventana.getPrespuesta().setVisible(false);
+        }
+
+        if (comando.equals("CALCULARDEN2")) {
+
+            try {
+                aux = ventana.getPdenEne2().getTxtcampo().getText();
+                aux_dou = Double.parseDouble(aux);
+                n1 = new Numero(aux_dou);
+                System.out.println(aux);
+
+            } catch (Exception error) {
+                msg.mostrarInformacionError("Solo debes usar números y la 'e' en caso de tener un exponente.");
+            }
+
+            double rta = n1.DensidadEne2();
+            ventana.getPrespuesta().getErta().setText(" La densidad de energía es: " + rta + " (J/m^3) ");
+
+        }
+        }
     }
-}
 
 

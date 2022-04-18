@@ -4,31 +4,30 @@ import javax.swing.*;
 import javax.swing.border.TitledBorder;
 import java.awt.*;
 
-public class PanelPotencialUnaCarga extends JPanel {
+public class PanelEneAlm1 extends JPanel {
 
     private JLabel lblcarga;
-    private JLabel lbldistancia;
+    private JLabel lblcapacitancia;
     private JLabel erecordar;
 
     private JTextField txtcarga;
-    private JTextField txtdistancia;
+    private JTextField txtcapacitancia;
 
     private JButton btncalcular;
     private JButton btnvolver;
 
-    public PanelPotencialUnaCarga()
+    public PanelEneAlm1()
     {
-      setLayout(null);
-      setVisible(false);
-      initComponents();
+        initComponents();
+        setLayout(null);
+        setVisible(false);
     }
 
     public void initComponents()
     {
-
         setBackground(Color.cyan);
         Font font = new Font("Century Gothic", Font.BOLD, 12);
-        TitledBorder tb = new TitledBorder("Potencial de una carga");
+        TitledBorder tb = new TitledBorder("Energia almacenada formula 1");
         tb.setTitleFont(font);
         setBorder(tb);
 
@@ -41,36 +40,35 @@ public class PanelPotencialUnaCarga extends JPanel {
         lblcarga.setBounds(90, 50, 100, 20);
         add(lblcarga);
 
-        lbldistancia = new JLabel("Distancia entre punto y carga(m): ");
-        lbldistancia.setBounds(10, 90, 200, 20);
-        add(lbldistancia);
+        lblcapacitancia = new JLabel("Capacitancia (F): ");
+        lblcapacitancia.setBounds(90, 90, 100, 20);
+        add(lblcapacitancia);
 
         txtcarga = new JTextField();
         txtcarga.setBounds(200, 50, 250, 20);
         add(txtcarga);
 
-        txtdistancia = new JTextField();
-        txtdistancia.setBounds(200, 90, 250, 20);
-        add(txtdistancia);
+        txtcapacitancia = new JTextField();
+        txtcapacitancia.setBounds(200, 90, 250, 20);
+        add(txtcapacitancia);
 
         btncalcular = new JButton("Calcular");
         btncalcular.setBounds(210, 150, 100, 20);
         add(btncalcular);
-        btncalcular.setActionCommand("CALCULARPOTECARGA");
+        btncalcular.setActionCommand("CALCULARALM1");
 
         btnvolver = new JButton("Volver");
         btnvolver.setBounds(320, 150, 100, 20);
         add(btnvolver);
-        btnvolver.setActionCommand("VOLVERPOTECARGA");
-
+        btnvolver.setActionCommand("VOLVERALM1");
     }
 
     public JLabel getLblcarga() {
         return lblcarga;
     }
 
-    public JLabel getLbldistancia() {
-        return lbldistancia;
+    public JLabel getLblcapacitancia() {
+        return lblcapacitancia;
     }
 
     public JLabel getErecordar() {
@@ -81,8 +79,8 @@ public class PanelPotencialUnaCarga extends JPanel {
         return txtcarga;
     }
 
-    public JTextField getTxtdistancia() {
-        return txtdistancia;
+    public JTextField getTxtcapacitancia() {
+        return txtcapacitancia;
     }
 
     public JButton getBtncalcular() {
