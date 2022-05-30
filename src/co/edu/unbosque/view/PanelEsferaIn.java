@@ -38,8 +38,8 @@ public class PanelEsferaIn extends JPanel {
         add(erecordar);
 
         lblcarga = new JLabel("Carga (C): ");
-        lblradior = new JLabel("Radio r (m): ");
-        lblradioR = new JLabel("Radio R (m): ");
+        lblradior = new JLabel("Radio interno R (m): ");
+        lblradioR = new JLabel("Radio externo r (m): ");
 
         txtcarga = new JTextField();
         txtradior = new JTextField();
@@ -51,8 +51,8 @@ public class PanelEsferaIn extends JPanel {
         btnvolver.setActionCommand("VOLVERESFERAIN");
 
         lblcarga.setBounds(90, 50, 100, 20);
-        lblradior.setBounds(90, 90, 100, 20);
-        lblradioR.setBounds(90, 130, 100, 20);
+        lblradior.setBounds(70, 90, 150, 20);
+        lblradioR.setBounds(70, 130, 150, 20);
 
         txtcarga.setBounds(200, 50, 250, 20);
         txtradior.setBounds(200, 90, 250, 20);

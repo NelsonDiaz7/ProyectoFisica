@@ -11,6 +11,8 @@ public class PanelSumaSerie extends JPanel {
     JLabel lblvoltaje2;
     JLabel lblvoltaje3;
 
+    JLabel lblCantidad;
+
     JTextField txtvoltaje1;
     JTextField txtvoltaje2;
     JTextField txtvoltaje3;
@@ -72,6 +74,11 @@ public class PanelSumaSerie extends JPanel {
         btnvolver.setBounds(320,170,100,20);
         add(btnvolver);
         btnvolver.setActionCommand("VOLVERSUMARSERIE");
+
+        lblCantidad = new JLabel(" ¿Otra Cantidad? ");
+        lblCantidad.setFont(font);
+        lblCantidad.setBounds(15, 200, 300, 20);
+        add(lblCantidad);
 
     }
 
