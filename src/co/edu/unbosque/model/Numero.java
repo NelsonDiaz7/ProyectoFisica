@@ -88,7 +88,7 @@ public class Numero {
         double constante = 8.85e-12;
         double pi = Math.PI;
         double part1 = 2 * (pi) * (constante) * num;
-        double part2 = Math.log(radio2.num / radio1.num);
+        double part2 = Math.abs(Math.log(radio2.num / radio1.num));
 
         double capacitanciacilindro = Math.abs(part1/part2);
 
@@ -140,6 +140,34 @@ public class Numero {
     public double SumaParalelo(Numero ca1, Numero ca2) {
 
        double Ceq = num + ca1.num + ca2.num;
+
+        return Ceq;
+    }
+
+    public double SumaParalelo2(Numero ca1) {
+
+        double Ceq = num + ca1.num;
+
+        return Ceq;
+    }
+
+    public double SumaParalelo4(Numero ca1, Numero ca2 , Numero ca3) {
+
+        double Ceq = num + ca1.num + ca2.num + ca3.num;
+
+        return Ceq;
+    }
+
+    public double SumaParalelo5(Numero ca1, Numero ca2 , Numero ca3, Numero ca4) {
+
+        double Ceq = num + ca1.num + ca2.num + ca3.num + ca4.num;
+
+        return Ceq;
+    }
+
+    public double SumaParalelo6(Numero ca1, Numero ca2 , Numero ca3, Numero ca4, Numero ca5) {
+
+        double Ceq = num + ca1.num + ca2.num + ca3.num + ca4.num + ca5.num;
 
         return Ceq;
     }

@@ -24,6 +24,10 @@ public class VentanaPrincipal extends JFrame{
     private PanelPotencialEsfera ppotencialesfera;
     private PanelSumaCapacitores psumacapa;
     private PanelSumaParalelo psumaparalelo;
+    private PanelSumaParalelo2 psumaParalelo2;
+    private PanelSumaParalelo4 psumaParalelo4;
+    private PanelSumaParalelo5 psumaParalelo5;
+    private PanelSumaParalelo6 psumaParalelo6;
     private PanelSumaSerie psumaserie;
     private PanelPotencialElectrico ppotencial;
     private PanelPotencialUnaCarga ppotencialUnaCarga;
@@ -126,6 +130,22 @@ public class VentanaPrincipal extends JFrame{
         psumaparalelo.setBounds(25, 25, 535, 250);
         getContentPane().add(psumaparalelo);
 
+        psumaParalelo2 = new PanelSumaParalelo2();
+        psumaParalelo2.setBounds(25, 25, 535,250);
+        getContentPane().add(psumaParalelo2);
+
+        psumaParalelo4 = new PanelSumaParalelo4();
+        psumaParalelo4.setBounds(25, 25, 535,250);
+        getContentPane().add(psumaParalelo4);
+
+        psumaParalelo5 = new PanelSumaParalelo5();
+        psumaParalelo5.setBounds(25, 25, 535,250);
+        getContentPane().add(psumaParalelo5);
+
+        psumaParalelo6 = new PanelSumaParalelo6();
+        psumaParalelo6.setBounds(25, 25, 535,250);
+        getContentPane().add(psumaParalelo6);
+
         psumaserie = new PanelSumaSerie();
         psumaserie.setBounds(25, 25, 535, 250);
         getContentPane().add(psumaserie);
@@ -197,6 +217,40 @@ public class VentanaPrincipal extends JFrame{
         pPotencialD = new PanelPotencialConD();
         pPotencialD.setBounds(25,25,535,250);
         getContentPane().add(pPotencialD);
+
+
+    }
+
+    public PanelSumaParalelo2 getPsumaParalelo2() {
+        return psumaParalelo2;
+    }
+
+    public void setPsumaParalelo2(PanelSumaParalelo2 psumaParalelo2) {
+        this.psumaParalelo2 = psumaParalelo2;
+    }
+
+    public PanelSumaParalelo4 getPsumaParalelo4() {
+        return psumaParalelo4;
+    }
+
+    public void setPsumaParalelo4(PanelSumaParalelo4 psumaParalelo4) {
+        this.psumaParalelo4 = psumaParalelo4;
+    }
+
+    public PanelSumaParalelo5 getPsumaParalelo5() {
+        return psumaParalelo5;
+    }
+
+    public void setPsumaParalelo5(PanelSumaParalelo5 psumaParalelo5) {
+        this.psumaParalelo5 = psumaParalelo5;
+    }
+
+    public PanelSumaParalelo6 getPsumaParalelo6() {
+        return psumaParalelo6;
+    }
+
+    public void setPsumaParalelo6(PanelSumaParalelo6 psumaParalelo6) {
+        this.psumaParalelo6 = psumaParalelo6;
     }
 
     public PanelDatos getPdatos() {

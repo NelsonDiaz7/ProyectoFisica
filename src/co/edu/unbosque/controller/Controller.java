@@ -91,6 +91,42 @@ public class Controller implements ActionListener {
         //botones panel suma paralelo
         ventana.getPsumaparalelo().getBtnvolver().addActionListener(this);
         ventana.getPsumaparalelo().getBtnsumar().addActionListener(this);
+        ventana.getPsumaparalelo().getBtn2().addActionListener(this);
+        ventana.getPsumaparalelo().getBtn4().addActionListener(this);
+        ventana.getPsumaparalelo().getBtn5().addActionListener(this);
+        ventana.getPsumaparalelo().getBtn6().addActionListener(this);
+        //botones panel suma parelelo 2
+        ventana.getPsumaParalelo2().getBtnvolver().addActionListener(this);
+        ventana.getPsumaParalelo2().getBtnsumar().addActionListener(this);
+        ventana.getPsumaParalelo2().getBtn3().addActionListener(this);
+        ventana.getPsumaParalelo2().getBtn4().addActionListener(this);
+        ventana.getPsumaParalelo2().getBtn5().addActionListener(this);
+        ventana.getPsumaParalelo2().getBtn6().addActionListener(this);
+        //botones panel suma parelelo 4
+        ventana.getPsumaParalelo4().getBtnvolver().addActionListener(this);
+        ventana.getPsumaParalelo4().getBtnsumar().addActionListener(this);
+        ventana.getPsumaParalelo4().getBtn2().addActionListener(this);
+        ventana.getPsumaParalelo4().getBtn3().addActionListener(this);
+        ventana.getPsumaParalelo4().getBtn5().addActionListener(this);
+        ventana.getPsumaParalelo4().getBtn6().addActionListener(this);
+        //botones panel suma parelelo 5
+        ventana.getPsumaParalelo5().getBtnvolver().addActionListener(this);
+        ventana.getPsumaParalelo5().getBtnsumar().addActionListener(this);
+        ventana.getPsumaParalelo5().getBtn2().addActionListener(this);
+        ventana.getPsumaParalelo5().getBtn4().addActionListener(this);
+        ventana.getPsumaParalelo5().getBtn3().addActionListener(this);
+        ventana.getPsumaParalelo5().getBtn6().addActionListener(this);
+        //botones panel suma parelelo 6
+        ventana.getPsumaParalelo6().getBtnvolver().addActionListener(this);
+        ventana.getPsumaParalelo6().getBtnsumar().addActionListener(this);
+        ventana.getPsumaParalelo6().getBtn2().addActionListener(this);
+        ventana.getPsumaParalelo6().getBtn4().addActionListener(this);
+        ventana.getPsumaParalelo6().getBtn5().addActionListener(this);
+        ventana.getPsumaParalelo6().getBtn3().addActionListener(this);
+        //ventana.getPsumaparalelo().getBtn3().addActionListener(this);
+        ventana.getPsumaparalelo().getBtn4().addActionListener(this);
+        ventana.getPsumaparalelo().getBtn5().addActionListener(this);
+        ventana.getPsumaparalelo().getBtn6().addActionListener(this);
         //botones panel potencial electrico
         ventana.getPpotencial().getBtnVolver().addActionListener(this);
         ventana.getPpotencial().getBtnUnacarga().addActionListener(this);
@@ -573,8 +609,6 @@ public class Controller implements ActionListener {
 
         }
 
-
-
         //Comandos panel suma capacitores
         if (comando.equals("VOLVERSUM")) {
             ventana.getPsumacapa().setVisible(false);
@@ -592,7 +626,6 @@ public class Controller implements ActionListener {
             ventana.getPsumaparalelo().setVisible(true);
             ventana.getPrespuesta().setVisible(true);
         }
-
         //Comandos panel potencial electrico
 
         if (comando.equals("VOLVERPOTE")) {
@@ -913,14 +946,41 @@ public class Controller implements ActionListener {
         }
 
         //comandos panel suma paralelo
+        if(comando.equals("BTN2_3"))
+        {
+            ventana.getPsumaparalelo().setVisible(false);
+            ventana.getPsumaParalelo2().setVisible(true);
+            ventana.getPrespuesta().setVisible(true);
+        }
 
-        if (comando.equals("VOLVERSUMARPARALELO")) {
+        if(comando.equals("BTN4_3"))
+        {
+            ventana.getPsumaparalelo().setVisible(false);
+            ventana.getPsumaParalelo4().setVisible(true);
+            ventana.getPrespuesta().setVisible(true);
+        }
+
+        if(comando.equals("BTN5_3"))
+        {
+            ventana.getPsumaparalelo().setVisible(false);
+            ventana.getPsumaParalelo5().setVisible(true);
+            ventana.getPrespuesta().setVisible(true);
+        }
+
+        if(comando.equals("BTN6_3"))
+        {
+            ventana.getPsumaparalelo().setVisible(false);
+            ventana.getPsumaParalelo6().setVisible(true);
+            ventana.getPrespuesta().setVisible(true);
+        }
+
+        if (comando.equals("VOLVERSUMARPARALELO_3")) {
             ventana.getPsumacapa().setVisible(true);
             ventana.getPsumaparalelo().setVisible(false);
             ventana.getPrespuesta().setVisible(false);
         }
 
-        if (comando.equals("SUMARPARALELO")) {
+        if (comando.equals("SUMARPARALELO_3")) {
             try {
                 aux = ventana.getPsumaparalelo().getTxtvoltaje1().getText();
                 aux_dou = Double.parseDouble(aux);
@@ -945,9 +1005,281 @@ public class Controller implements ActionListener {
             ventana.getPrespuesta().getErta().setText(" La suma en paralelo es: " + rta + " (F) ");
 
         }
+        //comandos panel suma paralelos 2
+
+        if(comando.equals("BTN3_2"))
+        {
+            ventana.getPsumaParalelo2().setVisible(false);
+            ventana.getPsumaparalelo().setVisible(true);
+            ventana.getPrespuesta().setVisible(true);
+        }
+
+        if(comando.equals("BTN4_2"))
+        {
+            ventana.getPsumaParalelo2().setVisible(false);
+            ventana.getPsumaParalelo4().setVisible(true);
+            ventana.getPrespuesta().setVisible(true);
+        }
+
+        if(comando.equals("BTN5_2"))
+        {
+            ventana.getPsumaParalelo2().setVisible(false);
+            ventana.getPsumaParalelo5().setVisible(true);
+            ventana.getPrespuesta().setVisible(true);
+        }
+
+        if(comando.equals("BTN6_2"))
+        {
+            ventana.getPsumaParalelo2().setVisible(false);
+            ventana.getPsumaParalelo6().setVisible(true);
+            ventana.getPrespuesta().setVisible(true);
+        }
+
+        if (comando.equals("VOLVERSUMARPARALELO_2")) {
+            ventana.getPsumacapa().setVisible(true);
+            ventana.getPsumaParalelo2().setVisible(false);
+            ventana.getPrespuesta().setVisible(false);
+        }
+
+        if (comando.equals("SUMARPARALELO_2")) {
+            try {
+                aux = ventana.getPsumaParalelo2().getTxtvoltaje1().getText();
+                aux_dou = Double.parseDouble(aux);
+                n1 = new Numero(aux_dou);
+                System.out.println(aux);
+
+                aux = ventana.getPsumaParalelo2().getTxtvoltaje2().getText();
+                aux_dou = Double.parseDouble(aux);
+                n2 = new Numero(aux_dou);
+                System.out.println(aux);
+
+            } catch (Exception error) {
+                msg.mostrarInformacionError("Solo debes usar números y la 'e' en caso de tener un exponente.");
+            }
+
+            double rta = n1.SumaParalelo2(n2);
+            ventana.getPrespuesta().getErta().setText(" La suma en paralelo es: " + rta + " (F) ");
+
+        }
+        //comandos panel suma paralelos 4
+
+        if(comando.equals("BTN2_4"))
+        {
+            ventana.getPsumaParalelo4().setVisible(false);
+            ventana.getPsumaParalelo2().setVisible(true);
+            ventana.getPrespuesta().setVisible(true);
+        }
+
+        if(comando.equals("BTN3_4"))
+        {
+            ventana.getPsumaParalelo4().setVisible(false);
+            ventana.getPsumaparalelo().setVisible(true);
+            ventana.getPrespuesta().setVisible(true);
+        }
+
+        if(comando.equals("BTN5_4"))
+        {
+            ventana.getPsumaParalelo4().setVisible(false);
+            ventana.getPsumaParalelo5().setVisible(true);
+            ventana.getPrespuesta().setVisible(true);
+        }
+
+        if(comando.equals("BTN6_4"))
+        {
+            ventana.getPsumaParalelo4().setVisible(false);
+            ventana.getPsumaParalelo6().setVisible(true);
+            ventana.getPrespuesta().setVisible(true);
+        }
+
+        if (comando.equals("VOLVERSUMARPARALELO_4")) {
+            ventana.getPsumacapa().setVisible(true);
+            ventana.getPsumaParalelo4().setVisible(false);
+            ventana.getPrespuesta().setVisible(false);
+        }
+
+        if (comando.equals("SUMARPARALELO_4")) {
+            try {
+                aux = ventana.getPsumaParalelo4().getTxtvoltaje1().getText();
+                aux_dou = Double.parseDouble(aux);
+                n1 = new Numero(aux_dou);
+                System.out.println(aux);
+
+                aux = ventana.getPsumaParalelo4().getTxtvoltaje2().getText();
+                aux_dou = Double.parseDouble(aux);
+                n2 = new Numero(aux_dou);
+                System.out.println(aux);
+
+                aux = ventana.getPsumaParalelo4().getTxtvoltaje3().getText();
+                aux_dou = Double.parseDouble(aux);
+                n3 = new Numero(aux_dou);
+                System.out.println(aux);
+
+                aux = ventana.getPsumaParalelo4().getTxtvoltaje4().getText();
+                aux_dou = Double.parseDouble(aux);
+                n4 = new Numero(aux_dou);
+                System.out.println(aux);
+
+            } catch (Exception error) {
+                msg.mostrarInformacionError("Solo debes usar números y la 'e' en caso de tener un exponente.");
+            }
+
+            double rta = n1.SumaParalelo4(n2,n3,n4);
+            ventana.getPrespuesta().getErta().setText(" La suma en paralelo es: " + rta + " (F) ");
+
+        }
+
+        //comandos panel suma paralelos 5
+
+        if(comando.equals("BTN2_5"))
+        {
+            ventana.getPsumaParalelo5().setVisible(false);
+            ventana.getPsumaParalelo2().setVisible(true);
+            ventana.getPrespuesta().setVisible(true);
+        }
+
+        if(comando.equals("BTN3_5"))
+        {
+            ventana.getPsumaParalelo5().setVisible(false);
+            ventana.getPsumaparalelo().setVisible(true);
+            ventana.getPrespuesta().setVisible(true);
+        }
+
+        if(comando.equals("BTN4_5"))
+        {
+            ventana.getPsumaParalelo5().setVisible(false);
+            ventana.getPsumaParalelo4().setVisible(true);
+            ventana.getPrespuesta().setVisible(true);
+        }
+
+        if(comando.equals("BTN6_5"))
+        {
+            ventana.getPsumaParalelo5().setVisible(false);
+            ventana.getPsumaParalelo6().setVisible(true);
+            ventana.getPrespuesta().setVisible(true);
+        }
+
+        if (comando.equals("VOLVERSUMARPARALELO_5")) {
+            ventana.getPsumacapa().setVisible(true);
+            ventana.getPsumaParalelo5().setVisible(false);
+            ventana.getPrespuesta().setVisible(false);
+        }
+
+        if (comando.equals("SUMARPARALELO_5")) {
+            try {
+                aux = ventana.getPsumaParalelo5().getTxtvoltaje1().getText();
+                aux_dou = Double.parseDouble(aux);
+                n1 = new Numero(aux_dou);
+                System.out.println(aux);
+
+                aux = ventana.getPsumaParalelo5().getTxtvoltaje2().getText();
+                aux_dou = Double.parseDouble(aux);
+                n2 = new Numero(aux_dou);
+                System.out.println(aux);
+
+                aux = ventana.getPsumaParalelo5().getTxtvoltaje3().getText();
+                aux_dou = Double.parseDouble(aux);
+                n3 = new Numero(aux_dou);
+                System.out.println(aux);
+
+                aux = ventana.getPsumaParalelo5().getTxtvoltaje4().getText();
+                aux_dou = Double.parseDouble(aux);
+                n4 = new Numero(aux_dou);
+                System.out.println(aux);
+
+                aux = ventana.getPsumaParalelo5().getTxtvoltaje5().getText();
+                aux_dou = Double.parseDouble(aux);
+                n5 = new Numero(aux_dou);
+                System.out.println(aux);
+
+            } catch (Exception error) {
+                msg.mostrarInformacionError("Solo debes usar números y la 'e' en caso de tener un exponente.");
+                System.out.println(error);
+            }
+
+            double rta = n1.SumaParalelo5(n2,n3,n4, n5);
+            ventana.getPrespuesta().getErta().setText(" La suma en paralelo es: " + rta + " (F) ");
+
+        }
+
+        //comandos panel suma paralelos 6
+
+        if(comando.equals("BTN2_6"))
+        {
+            ventana.getPsumaParalelo6().setVisible(false);
+            ventana.getPsumaParalelo2().setVisible(true);
+            ventana.getPrespuesta().setVisible(true);
+        }
+
+        if(comando.equals("BTN3_6"))
+        {
+            ventana.getPsumaParalelo6().setVisible(false);
+            ventana.getPsumaparalelo().setVisible(true);
+            ventana.getPrespuesta().setVisible(true);
+        }
+
+        if(comando.equals("BTN4_6"))
+        {
+            ventana.getPsumaParalelo6().setVisible(false);
+            ventana.getPsumaParalelo4().setVisible(true);
+            ventana.getPrespuesta().setVisible(true);
+        }
+
+        if(comando.equals("BTN5_6"))
+        {
+            ventana.getPsumaParalelo6().setVisible(false);
+            ventana.getPsumaParalelo5().setVisible(true);
+            ventana.getPrespuesta().setVisible(true);
+        }
+
+        if (comando.equals("VOLVERSUMARPARALELO_6")) {
+            ventana.getPsumacapa().setVisible(true);
+            ventana.getPsumaParalelo6().setVisible(false);
+            ventana.getPrespuesta().setVisible(false);
+        }
+
+        if (comando.equals("SUMARPARALELO_6")) {
+            try {
+                aux = ventana.getPsumaParalelo6().getTxtvoltaje1().getText();
+                aux_dou = Double.parseDouble(aux);
+                n1 = new Numero(aux_dou);
+                System.out.println(aux);
+
+                aux = ventana.getPsumaParalelo6().getTxtvoltaje2().getText();
+                aux_dou = Double.parseDouble(aux);
+                n2 = new Numero(aux_dou);
+                System.out.println(aux);
+
+                aux = ventana.getPsumaParalelo6().getTxtvoltaje3().getText();
+                aux_dou = Double.parseDouble(aux);
+                n3 = new Numero(aux_dou);
+                System.out.println(aux);
+
+                aux = ventana.getPsumaParalelo6().getTxtvoltaje4().getText();
+                aux_dou = Double.parseDouble(aux);
+                n4 = new Numero(aux_dou);
+                System.out.println(aux);
+
+                aux = ventana.getPsumaParalelo6().getTxtvoltaje5().getText();
+                aux_dou = Double.parseDouble(aux);
+                n5 = new Numero(aux_dou);
+                System.out.println(aux);
+
+                aux = ventana.getPsumaParalelo6().getTxtvoltaje6().getText();
+                aux_dou = Double.parseDouble(aux);
+                n6 = new Numero(aux_dou);
+                System.out.println(aux);
+
+            } catch (Exception error) {
+                msg.mostrarInformacionError("Solo debes usar números y la 'e' en caso de tener un exponente.");
+                System.out.println(error);
+            }
+
+            double rta = n1.SumaParalelo6(n2,n3,n4, n5, n6);
+            ventana.getPrespuesta().getErta().setText(" La suma en paralelo es: " + rta + " (F) ");
+
+        }
 
         //comandos panel suma serie
-
         if (comando.equals("VOLVERSUMARSERIE")) {
             ventana.getPsumacapa().setVisible(true);
             ventana.getPsumaserie().setVisible(false);
