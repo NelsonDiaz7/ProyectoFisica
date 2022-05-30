@@ -2,6 +2,8 @@ package co.edu.unbosque.model;
 
 import java.text.DecimalFormat;
 
+import static java.lang.Math.abs;
+
 public class Numero {
 
     private double num;
@@ -88,7 +90,7 @@ public class Numero {
         double part1 = 2 * (pi) * (constante) * num;
         double part2 = Math.log(radio2.num / radio1.num);
 
-        double capacitanciacilindro = part1/part2;
+        double capacitanciacilindro = Math.abs(part1/part2);
 
         return capacitanciacilindro;
     }
@@ -181,8 +183,8 @@ public class Numero {
     public double EnergiaSobreUnaCarga(Numero dis, Numero ca2, Numero dis2, Numero ca3, Numero dis3)
     {
         double constante = 9e9;
-        double distanciaQ1Q2 = Math.abs(dis.num-dis2.num);
-        double distanciaQ1Q3 = Math.abs(dis.num-dis3.num);
+        double distanciaQ1Q2 = abs(dis.num-dis2.num);
+        double distanciaQ1Q3 = abs(dis.num-dis3.num);
         double Uf = (constante*num)*((ca2.num/distanciaQ1Q2) + (ca3.num/distanciaQ1Q3));
 
         return Uf;
@@ -191,9 +193,9 @@ public class Numero {
     public double EnergiaTotal(Numero dis, Numero ca2, Numero dis2, Numero ca3, Numero dis3)
     {
         double constante = 9e9;
-        double distanciaQ1Q2 = Math.abs(dis.num-dis2.num);
-        double distanciaQ1Q3 = Math.abs(dis.num-dis3.num);
-        double distanciaQ2Q3 = Math.abs(dis2.num-dis3.num);
+        double distanciaQ1Q2 = abs(dis.num-dis2.num);
+        double distanciaQ1Q3 = abs(dis.num-dis3.num);
+        double distanciaQ2Q3 = abs(dis2.num-dis3.num);
         double UT = (constante)*((num*ca2.num/distanciaQ1Q2) + (num*ca3.num/distanciaQ1Q3) + (ca2.num*ca3.num/distanciaQ2Q3));
 
         return UT;

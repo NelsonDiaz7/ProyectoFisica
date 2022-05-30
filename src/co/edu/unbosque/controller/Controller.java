@@ -387,10 +387,20 @@ public class Controller implements ActionListener {
                 n2 = new Numero(aux_dou);
                 System.out.println(aux);
 
+                double rinterno = aux_dou;
+
                 aux = ventana.getPcapacitanciacilindro().getTxtradio2().getText();
                 aux_dou = Double.parseDouble(aux);
                 n3 = new Numero(aux_dou);
                 System.out.println(aux);
+
+                double rexterno = aux_dou;
+
+                if (rinterno > rexterno){
+                    msg.mostrarInformacion("El radio interno no puede ser mayor al radio externo");
+                    ventana.getPrespuesta().getErta().setText(" ");
+                    return;
+                }
 
             } catch (Exception error) {
                 msg.mostrarInformacionError("Solo debes usar números y la 'e' en caso de tener un exponente.");
@@ -415,10 +425,20 @@ public class Controller implements ActionListener {
                 n1 = new Numero(aux_dou);
                 System.out.println(aux);
 
+                double rinterno = aux_dou;
+
                 aux = ventana.getPcapacitanciaesfera().getTxtradio2().getText();
                 aux_dou = Double.parseDouble(aux);
                 n2 = new Numero(aux_dou);
                 System.out.println(aux);
+
+                double rexterno = aux_dou;
+
+                if (rinterno > rexterno){
+                    msg.mostrarInformacion("El radio interno no puede ser mayor al radio externo");
+                    ventana.getPrespuesta().getErta().setText(" ");
+                    return;
+                }
 
             } catch (Exception error) {
                 msg.mostrarInformacionError("Solo debes usar números y la 'e' en caso de tener un exponente.");
@@ -483,10 +503,20 @@ public class Controller implements ActionListener {
                 n3 = new Numero(aux_dou);
                 System.out.println(aux);
 
+                double rinterno = aux_dou;
+
                 aux = ventana.getPpotencialcilindro().getTxtradio2().getText();
                 aux_dou = Double.parseDouble(aux);
                 n4 = new Numero(aux_dou);
                 System.out.println(aux);
+
+                double rexterno = aux_dou;
+
+                if (rinterno > rexterno){
+                    msg.mostrarInformacion("El radio interno no puede ser mayor al radio externo");
+                    ventana.getPrespuesta().getErta().setText(" ");
+                    return;
+                }
 
             } catch (Exception error) {
                 msg.mostrarInformacionError("Solo debes usar números y la 'e' en caso de tener un exponente.");
@@ -518,10 +548,20 @@ public class Controller implements ActionListener {
                 n2 = new Numero(aux_dou);
                 System.out.println(aux);
 
+                double rinterno = aux_dou;
+
                 aux = ventana.getPpotencialesfera().getTxtradio2().getText();
                 aux_dou = Double.parseDouble(aux);
                 n3 = new Numero(aux_dou);
                 System.out.println(aux);
+
+                double rexterno = aux_dou;
+
+                if (rinterno > rexterno){
+                    msg.mostrarInformacion("El radio interno no puede ser mayor al radio externo");
+                    ventana.getPrespuesta().getErta().setText(" ");
+                    return;
+                }
 
             } catch (Exception error) {
                 msg.mostrarInformacionError("Solo debes usar números y la 'e' en caso de tener un exponente.");
