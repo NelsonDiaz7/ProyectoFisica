@@ -29,6 +29,10 @@ public class VentanaPrincipal extends JFrame{
     private PanelSumaParalelo5 psumaParalelo5;
     private PanelSumaParalelo6 psumaParalelo6;
     private PanelSumaSerie psumaserie;
+    private PanelSumaSerie2capacitores psumaserie2;
+    private PanelSumaSerie4capacitores psumaserie4;
+    private PanelSumaSerie5capacitores psumaserie5;
+    private PanelSumaSerie6capacitores psumaserie6;
     private PanelPotencialElectrico ppotencial;
     private PanelPotencialUnaCarga ppotencialUnaCarga;
     private PanelPotencialMasCargas ppotencialMasCargas;
@@ -150,6 +154,22 @@ public class VentanaPrincipal extends JFrame{
         psumaserie.setBounds(25, 25, 535, 250);
         getContentPane().add(psumaserie);
 
+        psumaserie2 = new PanelSumaSerie2capacitores();
+        psumaserie2.setBounds(25, 25, 535, 250);
+        getContentPane().add(psumaserie2);
+
+        psumaserie4 = new PanelSumaSerie4capacitores();
+        psumaserie4.setBounds(25, 25, 535, 250);
+        getContentPane().add(psumaserie4);
+
+        psumaserie5 = new PanelSumaSerie5capacitores();
+        psumaserie5.setBounds(25, 25, 535, 250);
+        getContentPane().add(psumaserie5);
+
+        psumaserie6 = new PanelSumaSerie6capacitores();
+        psumaserie6.setBounds(25, 25, 535, 250);
+        getContentPane().add(psumaserie6);
+
         ppotencial = new PanelPotencialElectrico();
         ppotencial.setBounds(25, 25, 535, 415);
         getContentPane().add(ppotencial);
@@ -219,6 +239,22 @@ public class VentanaPrincipal extends JFrame{
         getContentPane().add(pPotencialD);
 
 
+    }
+
+    public PanelSumaSerie2capacitores getPsumaserie2() {
+        return psumaserie2;
+    }
+
+    public PanelSumaSerie4capacitores getPsumaserie4() {
+        return psumaserie4;
+    }
+
+    public PanelSumaSerie5capacitores getPsumaserie5() {
+        return psumaserie5;
+    }
+
+    public PanelSumaSerie6capacitores getPsumaserie6() {
+        return psumaserie6;
     }
 
     public PanelSumaParalelo2 getPsumaParalelo2() {

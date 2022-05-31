@@ -81,13 +81,48 @@ public class Controller implements ActionListener {
         //botones potencial de la esfera
         ventana.getPpotencialesfera().getBtnvolver().addActionListener(this);
         ventana.getPpotencialesfera().getBtncalcular().addActionListener(this);
+        //botones panel suma serie
+        ventana.getPsumaserie().getBtnvolver().addActionListener(this);
+        ventana.getPsumaserie().getBtnsumar().addActionListener(this);
         //botones panel suma capacitores
         ventana.getPsumacapa().getBtnVolver().addActionListener(this);
         ventana.getPsumacapa().getBtnsumaserie().addActionListener(this);
         ventana.getPsumacapa().getBtnSumaParalelo().addActionListener(this);
-        //botones panel suma serie
+        //botones panel suma serie 3
         ventana.getPsumaserie().getBtnvolver().addActionListener(this);
         ventana.getPsumaserie().getBtnsumar().addActionListener(this);
+        ventana.getPsumaserie().getBtn2capacitor().addActionListener(this);
+        ventana.getPsumaserie().getBtn4capacitor().addActionListener(this);
+        ventana.getPsumaserie().getBtn5capacitor().addActionListener(this);
+        ventana.getPsumaserie().getBtn6capacitor().addActionListener(this);
+        //botones panel suma serie 2
+        ventana.getPsumaserie2().getBtnvolver().addActionListener(this);
+        ventana.getPsumaserie2().getBtnsumar().addActionListener(this);
+        ventana.getPsumaserie2().getBtn3capacitor().addActionListener(this);
+        ventana.getPsumaserie2().getBtn4capacitor().addActionListener(this);
+        ventana.getPsumaserie2().getBtn5capacitor().addActionListener(this);
+        ventana.getPsumaserie2().getBtn6capacitor().addActionListener(this);
+        //botones panel suma serie 4
+        ventana.getPsumaserie4().getBtnvolver().addActionListener(this);
+        ventana.getPsumaserie4().getBtnsumar().addActionListener(this);
+        ventana.getPsumaserie4().getBtn2capacitor().addActionListener(this);
+        ventana.getPsumaserie4().getBtn3capacitor().addActionListener(this);
+        ventana.getPsumaserie4().getBtn5capacitor().addActionListener(this);
+        ventana.getPsumaserie4().getBtn6capacitor().addActionListener(this);
+        //botones panel suma serie 5
+        ventana.getPsumaserie5().getBtnvolver().addActionListener(this);
+        ventana.getPsumaserie5().getBtnsumar().addActionListener(this);
+        ventana.getPsumaserie5().getBtn2capacitor().addActionListener(this);//corregir
+        ventana.getPsumaserie5().getBtn3capacitor().addActionListener(this);
+        ventana.getPsumaserie5().getBtn4capacitor().addActionListener(this);
+        ventana.getPsumaserie5().getBtn6capacitor().addActionListener(this);
+        //botones panel suma serie 6
+        ventana.getPsumaserie6().getBtnvolver().addActionListener(this);
+        ventana.getPsumaserie6().getBtnsumar().addActionListener(this);
+        ventana.getPsumaserie6().getBtn2capacitor().addActionListener(this);//corregir
+        ventana.getPsumaserie6().getBtn3capacitor().addActionListener(this);
+        ventana.getPsumaserie6().getBtn4capacitor().addActionListener(this);
+        ventana.getPsumaserie6().getBtn5capacitor().addActionListener(this);
         //botones panel suma paralelo
         ventana.getPsumaparalelo().getBtnvolver().addActionListener(this);
         ventana.getPsumaparalelo().getBtnsumar().addActionListener(this);
@@ -1280,10 +1315,32 @@ public class Controller implements ActionListener {
         }
 
         //comandos panel suma serie
+        //3 capacitores
         if (comando.equals("VOLVERSUMARSERIE")) {
             ventana.getPsumacapa().setVisible(true);
             ventana.getPsumaserie().setVisible(false);
             ventana.getPrespuesta().setVisible(false);
+        }
+        if (comando.equals("2CAPACITORES3")) {
+            ventana.getPsumaserie().setVisible(false);
+            ventana.getPsumaserie2().setVisible(true);
+            ventana.getPrespuesta().setVisible(true);
+        }
+
+        if (comando.equals("4CAPACITORES3")) {
+            ventana.getPsumaserie().setVisible(false);
+            ventana.getPsumaserie4().setVisible(true);
+            ventana.getPrespuesta().setVisible(true);
+        }
+        if (comando.equals("5CAPACITORES3")) {
+            ventana.getPsumaserie().setVisible(false);
+            ventana.getPsumaserie5().setVisible(true);
+            ventana.getPrespuesta().setVisible(true);
+        }
+        if (comando.equals("6CAPACITORES3")) {
+            ventana.getPsumaserie().setVisible(false);
+            ventana.getPsumaserie6().setVisible(true);
+            ventana.getPrespuesta().setVisible(true);
         }
 
         if (comando.equals("SUMARSERIE")) {
@@ -1309,6 +1366,250 @@ public class Controller implements ActionListener {
             }
 
             double rta = n1.SumaSerie(n2, n3);
+            ventana.getPrespuesta().getErta().setText(" La suma en serie es: " + rta + " (F) ");
+        }
+
+        //2 capacitores
+
+        if (comando.equals("VOLVERSUMARSERIE2")) {
+            ventana.getPsumacapa().setVisible(true);
+            ventana.getPsumaserie2().setVisible(false);
+            ventana.getPrespuesta().setVisible(false);
+        }
+        if (comando.equals("3CAPACITORES2")) {
+            ventana.getPsumaserie2().setVisible(false);
+            ventana.getPsumaserie().setVisible(true);
+            ventana.getPrespuesta().setVisible(true);
+        }
+
+        if (comando.equals("4CAPACITORES2")) {
+            ventana.getPsumaserie2().setVisible(false);
+            ventana.getPsumaserie4().setVisible(true);
+            ventana.getPrespuesta().setVisible(true);
+        }
+        if (comando.equals("5CAPACITORES2")) {
+            ventana.getPsumaserie2().setVisible(false);
+            ventana.getPsumaserie5().setVisible(true);
+            ventana.getPrespuesta().setVisible(true);
+        }
+        if (comando.equals("6CAPACITORES2")) {
+            ventana.getPsumaserie2().setVisible(false);
+            ventana.getPsumaserie6().setVisible(true);
+            ventana.getPrespuesta().setVisible(true);
+        }
+
+        if (comando.equals("SUMARSERIE2")) {
+            try {
+                aux = ventana.getPsumaserie2().getTxtvoltaje1().getText();
+                aux_dou = Double.parseDouble(aux);
+                n1 = new Numero(aux_dou);
+                System.out.println(aux);
+
+                aux = ventana.getPsumaserie2().getTxtvoltaje2().getText();
+                aux_dou = Double.parseDouble(aux);
+                n2 = new Numero(aux_dou);
+                System.out.println(aux);
+
+            } catch (Exception error) {
+                msg.mostrarInformacionError("Solo debes usar números y la 'e' en caso de tener un exponente.");
+            }
+
+            double rta = n1.SumaSerie2(n2);
+            ventana.getPrespuesta().getErta().setText(" La suma en serie es: " + rta + " (F) ");
+        }
+
+        //4 capacitores
+
+        if (comando.equals("VOLVERSUMARSERIE4")) {
+            ventana.getPsumacapa().setVisible(true);
+            ventana.getPsumaserie4().setVisible(false);
+            ventana.getPrespuesta().setVisible(false);
+        }
+        if (comando.equals("2CAPACITORES4")) {
+            ventana.getPsumaserie4().setVisible(false);
+            ventana.getPsumaserie2().setVisible(true);
+            ventana.getPrespuesta().setVisible(true);
+        }
+
+        if (comando.equals("3CAPACITORES4")) {
+            ventana.getPsumaserie4().setVisible(false);
+            ventana.getPsumaserie().setVisible(true);
+            ventana.getPrespuesta().setVisible(true);
+        }
+        if (comando.equals("5CAPACITORES4")) {
+            ventana.getPsumaserie4().setVisible(false);
+            ventana.getPsumaserie5().setVisible(true);
+            ventana.getPrespuesta().setVisible(true);
+        }
+        if (comando.equals("6CAPACITORES4")) {
+            ventana.getPsumaserie4().setVisible(false);
+            ventana.getPsumaserie6().setVisible(true);
+            ventana.getPrespuesta().setVisible(true);
+        }
+
+        if (comando.equals("SUMARSERIE4")) {
+            try {
+                aux = ventana.getPsumaserie4().getTxtvoltaje1().getText();
+                aux_dou = Double.parseDouble(aux);
+                n1 = new Numero(aux_dou);
+                System.out.println(aux);
+
+                aux = ventana.getPsumaserie4().getTxtvoltaje2().getText();
+                aux_dou = Double.parseDouble(aux);
+                n2 = new Numero(aux_dou);
+                System.out.println(aux);
+
+                aux = ventana.getPsumaserie4().getTxtvoltaje3().getText();
+                aux_dou = Double.parseDouble(aux);
+                n3 = new Numero(aux_dou);
+                System.out.println(aux);
+
+                aux = ventana.getPsumaserie4().getTxtvoltaje4().getText();
+                aux_dou = Double.parseDouble(aux);
+                n4 = new Numero(aux_dou);
+                System.out.println(aux);
+
+            } catch (Exception error) {
+                msg.mostrarInformacionError("Solo debes usar números y la 'e' en caso de tener un exponente.");
+            }
+
+            double rta = n1.SumaSerie4(n2,n3,n4);
+            ventana.getPrespuesta().getErta().setText(" La suma en serie es: " + rta + " (F) ");
+        }
+
+        //5 capacitores
+
+        if (comando.equals("VOLVERSUMARSERIE5")) {
+            ventana.getPsumacapa().setVisible(true);
+            ventana.getPsumaserie5().setVisible(false);
+            ventana.getPrespuesta().setVisible(false);
+        }
+
+        if (comando.equals("2CAPACITORES5")) {
+            ventana.getPsumaserie5().setVisible(false);
+            ventana.getPsumaserie2().setVisible(true);
+            ventana.getPrespuesta().setVisible(true);
+        }
+
+        if (comando.equals("3CAPACITORES5")) {
+            ventana.getPsumaserie5().setVisible(false);
+            ventana.getPsumaserie().setVisible(true);
+            ventana.getPrespuesta().setVisible(true);
+        }
+        if (comando.equals("4CAPACITORES5")) {
+            ventana.getPsumaserie5().setVisible(false);
+            ventana.getPsumaserie4().setVisible(true);
+            ventana.getPrespuesta().setVisible(true);
+        }
+        if (comando.equals("6CAPACITORES5")) {
+            ventana.getPsumaserie5().setVisible(false);
+            ventana.getPsumaserie6().setVisible(true);
+            ventana.getPrespuesta().setVisible(true);
+        }
+
+
+        if (comando.equals("SUMARSERIE5")) {
+            try {
+                aux = ventana.getPsumaserie5().getTxtvoltaje1().getText();
+                aux_dou = Double.parseDouble(aux);
+                n1 = new Numero(aux_dou);
+                System.out.println(aux);
+
+                aux = ventana.getPsumaserie5().getTxtvoltaje2().getText();
+                aux_dou = Double.parseDouble(aux);
+                n2 = new Numero(aux_dou);
+                System.out.println(aux);
+
+                aux = ventana.getPsumaserie5().getTxtvoltaje3().getText();
+                aux_dou = Double.parseDouble(aux);
+                n3 = new Numero(aux_dou);
+                System.out.println(aux);
+
+                aux = ventana.getPsumaserie5().getTxtvoltaje4().getText();
+                aux_dou = Double.parseDouble(aux);
+                n4 = new Numero(aux_dou);
+                System.out.println(aux);
+
+                aux = ventana.getPsumaserie5().getTxtvoltaje5().getText();
+                aux_dou = Double.parseDouble(aux);
+                n5 = new Numero(aux_dou);
+                System.out.println(aux);
+
+            } catch (Exception error) {
+                msg.mostrarInformacionError("Solo debes usar números y la 'e' en caso de tener un exponente.");
+            }
+
+            double rta = n1.SumaSerie5(n2,n3,n4,n5);
+            ventana.getPrespuesta().getErta().setText(" La suma en serie es: " + rta + " (F) ");
+        }
+
+        //6 capacitores
+
+        if (comando.equals("VOLVERSUMARSERIE6")) {
+            ventana.getPsumacapa().setVisible(true);
+            ventana.getPsumaserie6().setVisible(false);
+            ventana.getPrespuesta().setVisible(false);
+        }
+
+        if (comando.equals("2CAPACITORES6")) {
+            ventana.getPsumaserie6().setVisible(false);
+            ventana.getPsumaserie2().setVisible(true);
+            ventana.getPrespuesta().setVisible(true);
+        }
+
+        if (comando.equals("3CAPACITORES6")) {
+            ventana.getPsumaserie6().setVisible(false);
+            ventana.getPsumaserie().setVisible(true);
+            ventana.getPrespuesta().setVisible(true);
+        }
+        if (comando.equals("4CAPACITORES6")) {
+            ventana.getPsumaserie6().setVisible(false);
+            ventana.getPsumaserie2().setVisible(true);
+            ventana.getPrespuesta().setVisible(true);
+        }
+        if (comando.equals("5CAPACITORES6")) {
+            ventana.getPsumaserie6().setVisible(false);
+            ventana.getPsumaserie5().setVisible(true);
+            ventana.getPrespuesta().setVisible(true);
+        }
+
+        if (comando.equals("SUMARSERIE6")) {
+            try {
+                aux = ventana.getPsumaserie6().getTxtvoltaje1().getText();
+                aux_dou = Double.parseDouble(aux);
+                n1 = new Numero(aux_dou);
+                System.out.println(aux);
+
+                aux = ventana.getPsumaserie6().getTxtvoltaje2().getText();
+                aux_dou = Double.parseDouble(aux);
+                n2 = new Numero(aux_dou);
+                System.out.println(aux);
+
+                aux = ventana.getPsumaserie6().getTxtvoltaje3().getText();
+                aux_dou = Double.parseDouble(aux);
+                n3 = new Numero(aux_dou);
+                System.out.println(aux);
+
+                aux = ventana.getPsumaserie6().getTxtvoltaje4().getText();
+                aux_dou = Double.parseDouble(aux);
+                n4 = new Numero(aux_dou);
+                System.out.println(aux);
+
+                aux = ventana.getPsumaserie6().getTxtvoltaje5().getText();
+                aux_dou = Double.parseDouble(aux);
+                n5 = new Numero(aux_dou);
+                System.out.println(aux);
+
+                aux = ventana.getPsumaserie6().getTxtvoltaje6().getText();
+                aux_dou = Double.parseDouble(aux);
+                n6 = new Numero(aux_dou);
+                System.out.println(aux);
+
+            } catch (Exception error) {
+                msg.mostrarInformacionError("Solo debes usar números y la 'e' en caso de tener un exponente.");
+            }
+
+            double rta = n1.SumaSerie6(n2,n3,n4,n5,n6);
             ventana.getPrespuesta().getErta().setText(" La suma en serie es: " + rta + " (F) ");
         }
 

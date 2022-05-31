@@ -180,6 +180,32 @@ public class Numero {
         return Ceq;
     }
 
+    public double SumaSerie2(Numero ca1){
+
+        double sum = (1/num) + (1/ca1.num);
+        double Ceq = (1/1)/(sum);
+
+        return Ceq;
+    }
+    public double SumaSerie4(Numero ca1, Numero ca2, Numero ca3){
+        double sum = (1/num) + (1/ca1.num) + (1/ca2.num) + (1/ca3.num);
+        double ceq = (1/1)/(sum);
+
+        return ceq;
+    }
+    public double SumaSerie5(Numero ca1, Numero ca2, Numero ca3, Numero ca4){
+        double sum = (1/num) + (1/ca1.num) + (1/ca2.num) + (1/ca3.num) + (1/ca4.num);
+        double ceq = (1/1)/(sum);
+
+        return ceq;
+    }
+    public double SumaSerie6(Numero ca1, Numero ca2, Numero ca3, Numero ca4, Numero ca5){
+        double sum = (1/num) + (1/ca1.num) + (1/ca2.num) + (1/ca3.num) + (1/ca4.num) + (1/ca5.num);
+        double ceq = (1/1)/(sum);
+
+        return ceq;
+    }
+
     public double PotencialUnaCarga( Numero dis)
     {
         double constante = 9e9;
